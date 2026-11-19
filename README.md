@@ -107,12 +107,19 @@ Pendiente recomendado: una pasada manual con lector de pantalla (NVDA o VoiceOve
 
 ## Rendimiento y sostenibilidad
 
-| Recurso                | Peso transferido (v3)             |
-| ---------------------- | --------------------------------- |
-| HTML + CSS + JS (gzip) | ~22 kB                            |
-| Fuentes (2 archivos)   | ~69 kB                            |
-| Imágenes (3, 2 lazy)   | ~99 kB                            |
-| **Total**              | **~191 kB; primera vista ~98 kB** |
+Medición real tras publicar (19-nov-2026, Edge InPrivate, caché desactivada):
+
+| Recurso                      | Peso transferido                                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------- |
+| HTML                         | 69.6 kB                                                                                             |
+| CSS                          | 20.5 kB                                                                                             |
+| JS (2 archivos)              | 4.5 kB                                                                                              |
+| Fuentes (2 archivos)         | 71.8 kB                                                                                             |
+| Imágenes (2, carga diferida) | 101.7 kB                                                                                            |
+| Favicon                      | 7.6 kB                                                                                              |
+| **Total**                    | **276 kB en DevTools; 267 kB en el medidor del sitio (no cuenta el favicon); primera vista 168 kB** |
+
+La estimación previa (~191 kB) suponía HTML y CSS comprimidos; en la medición llegaron casi a su tamaño completo.
 
 Sin rastreadores, sin cookies y sin peticiones a terceros.
 
