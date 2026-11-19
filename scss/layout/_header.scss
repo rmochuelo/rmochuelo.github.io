@@ -1,0 +1,133 @@
+// =============================================================================
+// ENCABEZADO Y NAVEGACIÓN PRINCIPAL
+// =============================================================================
+
+@use '../abstracts/tokens';
+@use '../abstracts/mixins';
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+
+  // Línea naranja: guiño al <hr> naranja del diseño original de 2023.
+  border-top: 3px solid var(--color-highlight);
+
+  &__inner {
+    position: relative;
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    min-height: var(--header-height);
+  }
+
+  &__brand {
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-right: auto;
+    font-family: tokens.$font-display;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  // Isotipo SVG en línea: toma el color de acento de cada tema.
+  &__logo {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--color-accent);
+  }
+}
+
+.site-nav {
+  &__list {
+    @include mixins.list-reset;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+
+  &__link {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-base);
+
+    &:hover {
+      background-color: var(--color-surface-alt);
+    }
+
+    // Sección visible en pantalla (lo marca js/main.js).
+    &[aria-current='true'] {
+      color: var(--color-accent);
+      box-shadow: inset 0 -2px 0 var(--color-accent);
+    }
+  }
+
+  // El botón hamburguesa solo existe si hay JavaScript (clase .js en <html>).
+  &__toggle {
+    display: none;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    cursor: pointer;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+}
+
+// -- Menú móvil ---------------------------------------------------------------
+// Sin JavaScript, la lista se muestra completa (mejora progresiva).
+// Con JavaScript, bajo 48rem se pliega tras el botón hamburguesa.
+@media (width < 48rem) {
+  .site-header__inner {
+    flex-wrap: wrap;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .js {
+    .site-nav {
+      order: 0;
+      width: auto;
+
+      &__toggle {
+        display: grid;
+      }
+
+      &__list {
+        position: absolute;
+        inset-inline: 0;
+        top: 100%;
+        display: none;
+        flex-direction: column;
+        padding: var(--space-3) var(--space-4) var(--space-4);
+        background-color: var(--color-surface);
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: var(--shadow-card);
+      }
+
+      &__link {
+        padding: var(--space-3);
+        font-size: var(--font-size-base);
+      }
+
+      &--open .site-nav__list {
+        display: flex;
+      }
+    }
+  }
+}

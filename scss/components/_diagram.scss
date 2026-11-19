@@ -1,0 +1,58 @@
+// =============================================================================
+// DIAGRAMAS SVG EN LÍNEA
+// Los colores salen de los tokens: el mismo SVG funciona en ambos temas.
+// =============================================================================
+
+@use '../abstracts/tokens';
+
+.diagram {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+
+  &__line {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+
+  &__cable {
+    fill: none;
+    stroke: var(--color-border);
+    stroke-width: 2;
+  }
+
+  &__node {
+    fill: var(--color-surface);
+    stroke: var(--color-accent);
+    stroke-width: 3;
+  }
+
+  &__block {
+    fill: var(--color-surface);
+    stroke: var(--color-border);
+    stroke-width: 1.5;
+  }
+
+  &__block--accent {
+    fill: var(--color-accent);
+    stroke: none;
+  }
+
+  &__label {
+    font-family: tokens.$font-body;
+    font-size: 15px;
+    fill: var(--color-text-muted);
+  }
+
+  &__label--strong {
+    font-family: tokens.$font-display;
+    font-weight: 700;
+    fill: var(--color-text);
+  }
+
+  &__label--on-accent {
+    fill: var(--color-on-accent);
+  }
+}

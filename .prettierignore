@@ -1,0 +1,6 @@
+# Archivos generados o de terceros: no se formatean.
+node_modules
+css
+fonts
+img
+package-lock.json

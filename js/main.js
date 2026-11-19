@@ -1,0 +1,250 @@
+/**
+ * Comportamiento del portafolio de Ramón Puentes (v3).
+ *
+ * JavaScript sin dependencias. Cada función «init» configura una sola cosa y
+ * la página sigue siendo usable si el script no carga (mejora progresiva).
+ */
+'use strict';
+
+const THEME_STORAGE_KEY = 'theme';
+const NAV_OPEN_CLASS = 'site-nav--open';
+
+/* ---------------------------------------------------------------------------
+   Tema claro / oscuro (oscuro por defecto)
+   --------------------------------------------------------------------------- */
+
+/** @returns {'light' | 'dark'} */
+function getActiveTheme() {
+  return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+}
+
+/** Conecta el botón de tema, guarda la elección y mantiene aria-pressed. */
+function initThemeToggle() {
+  const toggle = document.querySelector('.theme-toggle');
+
+  if (!toggle) {
+    return;
+  }
+
+  const syncToggleState = () => {
+    toggle.setAttribute('aria-pressed', String(getActiveTheme() === 'dark'));
+  };
+
+  toggle.addEventListener('click', () => {
+    const nextTheme = getActiveTheme() === 'dark' ? 'light' : 'dark';
+
+    if (nextTheme === 'light') {
+      document.documentElement.dataset.theme = 'light';
+    } else {
+      delete document.documentElement.dataset.theme;
+    }
+
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch {
+      // Sin localStorage la elección vale solo para esta visita.
+    }
+
+    syncToggleState();
+  });
+
+  syncToggleState();
+}
+
+/* ---------------------------------------------------------------------------
+   Menú móvil
+   --------------------------------------------------------------------------- */
+
+/** Abre y cierra el menú en pantallas pequeñas. Se cierra con Escape o al elegir un enlace. */
+function initMobileNav() {
+  const nav = document.querySelector('.site-nav');
+  const toggle = nav?.querySelector('.site-nav__toggle');
+
+  if (!nav || !toggle) {
+    return;
+  }
+
+  const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+
+  const setOpen = (shouldOpen) => {
+    nav.classList.toggle(NAV_OPEN_CLASS, shouldOpen);
+    toggle.setAttribute('aria-expanded', String(shouldOpen));
+  };
+
+  toggle.addEventListener('click', () => setOpen(!isOpen()));
+
+  nav.addEventListener('click', (event) => {
+    if (event.target.closest('.site-nav__link')) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && isOpen()) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+}
+
+/* ---------------------------------------------------------------------------
+   Sección activa en la navegación
+   --------------------------------------------------------------------------- */
+
+/** Marca en el menú la sección que está en pantalla (aria-current). */
+function initScrollSpy() {
+  const navLinks = [...document.querySelectorAll('.site-nav__link')];
+  const sections = document.querySelectorAll('main > section[id]');
+
+  if (navLinks.length === 0 || !('IntersectionObserver' in window)) {
+    return;
+  }
+
+  const markCurrentSection = (sectionId) => {
+    navLinks.forEach((link) => {
+      if (link.hash === `#${sectionId}`) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries
+        .filter((entry) => entry.isIntersecting)
+        .forEach((entry) => markCurrentSection(entry.target.id));
+    },
+    { rootMargin: '-45% 0px -50% 0px' },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
+/* ---------------------------------------------------------------------------
+   Diagnóstico de 60 segundos
+   Los textos de resultado viven en el HTML (plantillas ocultas); el script
+   solo suma puntos y muestra la plantilla que corresponde. No guarda nada.
+   --------------------------------------------------------------------------- */
+
+/** Calcula el puente más débil y muestra su resultado en la región aria-live. */
+function initQuiz() {
+  const form = document.querySelector('[data-quiz]');
+
+  if (!form) {
+    return;
+  }
+
+  const result = form.querySelector('[data-quiz-result]');
+  const error = form.querySelector('[data-quiz-error]');
+  const questions = [...form.querySelectorAll('fieldset[data-bridge]')];
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const scores = questions.map((fieldset) => {
+      const checked = fieldset.querySelector('input:checked');
+
+      return {
+        bridge: fieldset.dataset.bridge,
+        name: fieldset.dataset.bridgeName,
+        score: checked ? Number(checked.value) : null,
+      };
+    });
+
+    if (scores.some((item) => item.score === null)) {
+      error.hidden = false;
+      result.replaceChildren();
+      questions
+        .find((fieldset) => !fieldset.querySelector('input:checked'))
+        ?.querySelector('input')
+        ?.focus();
+      return;
+    }
+
+    error.hidden = true;
+
+    const maxScore = Math.max(...scores.map((item) => item.score));
+    const weakest = scores.filter((item) => item.score === maxScore);
+    const outcomeKey = maxScore === 0 ? 'none' : weakest[0].bridge;
+    const template = document.querySelector(`template[data-outcome="${outcomeKey}"]`);
+
+    result.replaceChildren(template.content.cloneNode(true));
+
+    // Empate: se muestra el primero en el orden de la página y se nombra el otro.
+    if (maxScore > 0 && weakest.length > 1) {
+      const also = document.createElement('p');
+      also.textContent = `También conviene revisar: ${weakest
+        .slice(1)
+        .map((item) => item.name)
+        .join(' y ')}.`;
+      result.querySelector('[data-outcome-body]')?.after(also);
+    }
+  });
+}
+
+/* ---------------------------------------------------------------------------
+   Medidor de peso (Performance API)
+   Muestra lo que esta visita transfirió de verdad, no una cifra declarada.
+   --------------------------------------------------------------------------- */
+
+/** Suma los bytes transferidos de la página y sus recursos y los muestra en kB. */
+function initPageWeight() {
+  const output = document.querySelector('[data-page-weight]');
+  const note = document.querySelector('[data-page-weight-note]');
+
+  if (!output || !('performance' in window) || !performance.getEntriesByType) {
+    return;
+  }
+
+  const update = () => {
+    const entries = [
+      ...performance.getEntriesByType('navigation'),
+      ...performance.getEntriesByType('resource'),
+    ];
+    const transferred = entries.reduce((sum, entry) => sum + (entry.transferSize || 0), 0);
+    const encoded = entries.reduce((sum, entry) => sum + (entry.encodedBodySize || 0), 0);
+
+    // transferSize es 0 cuando el navegador usa su caché: se informa el peso real.
+    const fromCache = transferred < 1024 && encoded > 0;
+    const bytes = fromCache ? encoded : transferred;
+
+    if (bytes > 0) {
+      output.textContent = `${Math.round(bytes / 1024)} kB`;
+      note.textContent = fromCache
+        ? 'pesa esta página. En esta visita tu navegador la cargó desde su caché: casi 0 kB de red.'
+        : 'transfirió esta página en tu visita, medido por tu navegador.';
+    }
+  };
+
+  window.addEventListener('load', update);
+
+  // Las imágenes con carga diferida llegan después: se actualiza al recibirlas.
+  if ('PerformanceObserver' in window) {
+    new PerformanceObserver(update).observe({ type: 'resource', buffered: true });
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Año del pie de página
+   --------------------------------------------------------------------------- */
+
+function initCurrentYear() {
+  const yearElement = document.querySelector('[data-current-year]');
+
+  if (yearElement) {
+    yearElement.textContent = String(new Date().getFullYear());
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Arranque (el script se carga con "defer": el HTML ya está disponible)
+   --------------------------------------------------------------------------- */
+
+initThemeToggle();
+initMobileNav();
+initScrollSpy();
+initQuiz();
+initPageWeight();
+initCurrentYear();

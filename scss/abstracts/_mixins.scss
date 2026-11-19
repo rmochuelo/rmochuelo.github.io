@@ -1,0 +1,30 @@
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+@use 'sass:map';
+@use 'tokens';
+
+// Media query mobile-first: @include mq('md') { ... }
+@mixin mq($breakpoint) {
+  @media (min-width: map.get(tokens.$breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Oculta visualmente un elemento pero lo mantiene para lectores de pantalla.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// Quita el estilo de lista sin perder la semántica en VoiceOver (role="list" en el HTML).
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

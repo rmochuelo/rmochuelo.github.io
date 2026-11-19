@@ -1,0 +1,26 @@
+// =============================================================================
+// PIE DE PÁGINA
+// =============================================================================
+
+@use '../abstracts/mixins';
+
+.site-footer {
+  padding-block: var(--space-6);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+
+  &__inner {
+    display: grid;
+    gap: var(--space-3);
+
+    @include mixins.mq('md') {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+  }
+
+  &__note {
+    max-width: 40rem;
+  }
+}

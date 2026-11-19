@@ -1,0 +1,26 @@
+{
+  "name": "portafolio-ramon-puentes",
+  "version": "3.0.0",
+  "description": "Portafolio de Ramón Puentes, Lead Product UX Designer. HTML semántico, SCSS modular y JavaScript sin dependencias.",
+  "private": true,
+  "scripts": {
+    "build": "sass scss/main.scss css/styles.css --style=compressed --no-source-map",
+    "dev": "sass --watch scss/main.scss css/styles.css",
+    "lint:html": "htmlhint index.html",
+    "lint:css": "stylelint \"scss/**/*.scss\"",
+    "lint:js": "eslint js",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "htmlhint": "^1.9.2",
+    "prettier": "^3.10.1",
+    "sass": "^1.108.2",
+    "stylelint": "^18.0.0",
+    "stylelint-config-standard-scss": "^18.0.0"
+  }
+}

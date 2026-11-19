@@ -1,0 +1,62 @@
+// =============================================================================
+// HERO
+// =============================================================================
+
+@use '../abstracts/tokens';
+@use '../abstracts/mixins';
+
+.hero {
+  padding-block: clamp(var(--space-7), 8vw, var(--space-9));
+
+  &__inner {
+    display: grid;
+    gap: var(--space-7);
+    align-items: center;
+
+    @include mixins.mq('lg') {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: var(--space-5);
+    justify-items: start;
+  }
+
+  &__eyebrow {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__lead {
+    max-width: 38rem;
+    font-size: var(--font-size-lg);
+  }
+
+  &__role {
+    font-family: tokens.$font-display;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  &__media {
+    width: 100%;
+    max-width: 28rem;
+    margin-inline: auto;
+
+    .diagram__label {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+// =============================================================================
+// LÍNEA DE TIEMPO DE EXPERIENCIA
+// Móvil: línea a la izquierda. Escritorio: línea central con entradas alternas
+// (misma idea del diseño original de 2023, ahora con una lista ordenada <ol>).
+// =============================================================================
+
+@use '../abstracts/tokens';
+@use '../abstracts/mixins';
+
+$dot-size: 0.875rem;
+
+.timeline {
+  @include mixins.list-reset;
+
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+
+  // Línea vertical.
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc($dot-size / 2 - 1px);
+    width: 2px;
+    content: '';
+    background-color: var(--color-border);
+
+    @include mixins.mq('lg') {
+      left: calc(50% - 1px);
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding-left: var(--space-6);
+
+    // Punto sobre la línea.
+    &::before {
+      position: absolute;
+      top: 0.4rem;
+      left: 0;
+      width: $dot-size;
+      height: $dot-size;
+      content: '';
+      background-color: var(--color-accent);
+      border: 2px solid var(--color-bg);
+      border-radius: 50%;
+    }
+
+    @include mixins.mq('lg') {
+      width: 50%;
+      padding-right: var(--space-7);
+      padding-left: 0;
+      text-align: right;
+
+      &::before {
+        right: calc($dot-size / -2);
+        left: auto;
+      }
+
+      // Entradas pares: a la derecha de la línea.
+      &:nth-child(even) {
+        margin-left: 50%;
+        padding-right: 0;
+        padding-left: var(--space-7);
+        text-align: left;
+
+        &::before {
+          right: auto;
+          left: calc($dot-size / -2);
+        }
+      }
+    }
+  }
+
+  &__period {
+    font-family: tokens.$font-display;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  &__role {
+    margin-top: var(--space-1);
+  }
+
+  &__org {
+    font-weight: 600;
+  }
+
+  &__description {
+    margin-top: var(--space-2);
+    color: var(--color-text-muted);
+  }
+}

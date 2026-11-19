@@ -1,0 +1,114 @@
+// =============================================================================
+// TOKENS DE DISEÑO
+// Única fuente de verdad para color, tipografía, espacio y forma.
+// Paleta de la identidad de Ramón (CV y banner de LinkedIn).
+// v3: tema oscuro por defecto; tema claro cálido y sin blanco puro (#fff),
+// con texto de cuerpo en contraste AAA (7:1) en ambos temas.
+// =============================================================================
+
+// -- Paleta de marca (valores crudos; no usar directo en componentes) ---------
+$navy-900: #041c2e;
+$navy-800: #062a44;
+$navy-700: #0b3554;
+$slate-700: #2d4a60;
+$slate-600: #2e4558;
+$slate-300: #b8c7d3;
+$ice-100: #e6edf2;
+$coral-400: #fc9b8b;
+$orange-500: #ff6240;
+
+// Neutros cálidos del tema claro: menos deslumbramiento que el blanco puro.
+$paper-50: #faf8f3;
+$paper-100: #f4f1ea;
+$paper-200: #ebe6db;
+$paper-300: #d6cfc1;
+
+// Turquesa del banner (#1e7a6c) oscurecido para cumplir AA sobre papel.
+$teal-700: #17675b;
+$rust-600: #b3401f;
+
+// -- Tipografía ---------------------------------------------------------------
+$font-display: 'Space Grotesk Variable', 'Segoe UI', system-ui, sans-serif;
+$font-body: 'Inter Variable', 'Segoe UI', system-ui, sans-serif;
+
+// -- Puntos de quiebre (mobile-first) -----------------------------------------
+$breakpoints: (
+  'sm': 36rem,
+  'md': 48rem,
+  'lg': 64rem,
+);
+
+// -- Tema oscuro (predeterminado) ---------------------------------------------
+// Contrastes medidos: texto 10.8–14.7:1, texto secundario 7.4–10:1, acento 6.2–8.4:1.
+@mixin theme-dark {
+  --color-bg: #{$navy-900};
+  --color-surface: #{$navy-800};
+  --color-surface-alt: #{$navy-700};
+  --color-text: #{$ice-100};
+  --color-text-muted: #{$slate-300};
+  --color-border: #{$slate-700};
+  --color-accent: #{$coral-400};
+  --color-on-accent: #{$navy-800};
+  --color-highlight: #{$orange-500};
+  --shadow-card: 0 0.25rem 1.5rem rgb(0 0 0 / 30%);
+
+  color-scheme: dark;
+}
+
+// -- Tema claro ---------------------------------------------------------------
+// Contrastes medidos: texto 11.9–13.9:1, texto secundario 8–9.4:1, acento 5.4–6.3:1.
+@mixin theme-light {
+  --color-bg: #{$paper-100};
+  --color-surface: #{$paper-50};
+  --color-surface-alt: #{$paper-200};
+  --color-text: #{$navy-800};
+  --color-text-muted: #{$slate-600};
+  --color-border: #{$paper-300};
+  --color-accent: #{$teal-700};
+  --color-on-accent: #{$paper-50};
+  --color-highlight: #{$rust-600};
+  --shadow-card: 0 0.25rem 1.5rem rgb(6 42 68 / 8%);
+
+  color-scheme: light;
+}
+
+// -- Tokens globales ----------------------------------------------------------
+:root {
+  // Escala tipográfica fluida: crece con el ancho de pantalla sin media queries.
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1.0625rem;
+  --font-size-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem);
+  --font-size-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --font-size-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --font-size-h1: clamp(2.25rem, 1.5rem + 3.6vw, 4rem);
+
+  // Escala de espacio (múltiplos de 0.25rem).
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  // Forma y movimiento.
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 62.5rem;
+  --transition-base: 200ms ease;
+
+  // Medidas de layout.
+  --container-width: 72rem;
+  --header-height: 4rem;
+
+  @include theme-dark;
+}
+
+// El tema claro solo se activa por elección explícita (botón de tema).
+// La elección se guarda y la aplica js/theme-init.js antes del primer pintado.
+:root[data-theme='light'] {
+  @include theme-light;
+}

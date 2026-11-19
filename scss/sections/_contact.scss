@@ -1,0 +1,23 @@
+// =============================================================================
+// CONTACTO
+// =============================================================================
+
+@use '../abstracts/mixins';
+
+.contact {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+
+  &__links {
+    @include mixins.list-reset;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  &__note {
+    color: var(--color-text-muted);
+  }
+}

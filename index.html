@@ -1,0 +1,1428 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ramón Puentes | Lead Product UX Designer · AI Workflow, Sustainable UX y LXD</title>
+    <meta
+      name="description"
+      content="Diseño los flujos donde la IA, el aprendizaje y la eficiencia digital ganan o pierden valor. Auditoría en 15 días y tres casos reales."
+    />
+    <link rel="canonical" href="https://rmochuelo.github.io/" />
+
+    <!-- Tema oscuro por defecto: la barra del navegador acompaña. -->
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#041c2e" />
+
+    <!-- Open Graph: vista previa al compartir el enlace en LinkedIn, WhatsApp o Slack. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CR" />
+    <meta property="og:title" content="Ramón Puentes · La IA falla en el flujo, no en el modelo" />
+    <meta
+      property="og:description"
+      content="Lead Product UX Designer. AI Workflow, Sustainable UX y Learning Experience Design. Tres casos con cifras verificables."
+    />
+    <meta property="og:url" content="https://rmochuelo.github.io/" />
+    <meta property="og:image" content="https://rmochuelo.github.io/img/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Ramón Puentes, Lead Product UX Designer: la IA falla en el flujo, no en el modelo."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="fonts/inter-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/space-grotesk-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Sin "defer" a propósito: aplica el tema guardado antes del primer pintado. -->
+    <script src="js/theme-init.js"></script>
+    <script src="js/main.js" defer></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ramón Puentes",
+        "jobTitle": "Lead Product UX Designer",
+        "url": "https://rmochuelo.github.io/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Heredia",
+          "addressCountry": "CR"
+        },
+        "knowsAbout": [
+          "AI Workflow Design",
+          "Context Engineering",
+          "Sustainable UX",
+          "Learning Experience Design",
+          "Gamificación",
+          "UX Research",
+          "Accesibilidad web"
+        ],
+        "makesOffer": {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Workflow & Sustainable UX Audit",
+            "description": "Un flujo crítico de producto auditado, rediseñado y prototipado en 15 días, con un plan de implementación."
+          }
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/ramonpuentes",
+          "https://github.com/rmochuelo",
+          "https://www.behance.net/ramonpuentes"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- Sprite de iconos: cada símbolo se define una vez y se reutiliza con <use>. -->
+    <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-bridge" viewBox="0 0 32 32">
+        <path d="M3 22h26M5 22c3-9 19-9 22 0M11 17v5M16 15v7M21 17v5" />
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+        />
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
+      <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" /></symbol>
+      <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" /></symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </symbol>
+    </svg>
+
+    <!-- =====================================================================
+         0. ENCABEZADO
+         ===================================================================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__brand" href="#inicio">
+          <svg class="icon site-header__logo" aria-hidden="true"><use href="#icon-bridge" /></svg>
+          Ramón Puentes
+        </a>
+
+        <nav class="site-nav" aria-label="Principal">
+          <button
+            class="site-nav__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-principal"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#icon-menu" /></svg>
+            <span class="visually-hidden">Menú</span>
+          </button>
+          <ul class="site-nav__list" id="menu-principal" role="list">
+            <li><a class="site-nav__link" href="#puentes">Puentes</a></li>
+            <li><a class="site-nav__link" href="#casos">Casos</a></li>
+            <li><a class="site-nav__link" href="#auditoria">Auditoría</a></li>
+            <li><a class="site-nav__link" href="#trayectoria">Trayectoria</a></li>
+            <li><a class="site-nav__link" href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <button class="theme-toggle" type="button" aria-pressed="true">
+          <svg class="icon theme-toggle__icon--sun" aria-hidden="true">
+            <use href="#icon-sun" />
+          </svg>
+          <svg class="icon theme-toggle__icon--moon" aria-hidden="true">
+            <use href="#icon-moon" />
+          </svg>
+          <span class="visually-hidden">Tema oscuro</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <!-- ===================================================================
+           1. HERO — el problema
+           =================================================================== -->
+      <section class="hero" id="inicio" aria-labelledby="titulo-inicio">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <p class="hero__eyebrow">
+              Lead Product UX Designer · Costa Rica · Remoto para LATAM, EE. UU. y Europa
+            </p>
+            <h1 id="titulo-inicio">La IA no falla en el modelo. Falla en el flujo que la rodea.</h1>
+            <p class="hero__lead">
+              Diseño los tres puentes donde un producto digital pierde valor: entre las personas y
+              la IA, entre las personas y lo que necesitan aprender, y entre el producto y los
+              recursos que consume.
+            </p>
+            <p class="hero__role">AI Workflow · Sustainable UX · Learning Experience Design</p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="text-link" href="#casos">
+                ¿Evalúas talento? Ve los casos y la trayectoria
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-down" /></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__media">
+            <svg
+              class="diagram"
+              viewBox="0 0 420 360"
+              role="img"
+              aria-labelledby="diagrama-puentes"
+            >
+              <title id="diagrama-puentes">
+                Diagrama de tres puentes: persona e IA, persona y aprendizaje, producto y planeta.
+              </title>
+              <g>
+                <path class="diagram__cable" d="M140 92v-34M210 92v-49M280 92v-34" />
+                <path class="diagram__line" d="M60 92Q210-8 360 92M60 92h300" />
+                <circle class="diagram__node" cx="60" cy="92" r="10" />
+                <circle class="diagram__node" cx="360" cy="92" r="10" />
+                <text
+                  class="diagram__label diagram__label--strong"
+                  x="210"
+                  y="122"
+                  text-anchor="middle"
+                >
+                  01
+                </text>
+                <text class="diagram__label" x="60" y="122" text-anchor="middle">Persona</text>
+                <text class="diagram__label" x="360" y="122" text-anchor="middle">IA</text>
+              </g>
+              <g>
+                <path class="diagram__cable" d="M140 202v-34M210 202v-49M280 202v-34" />
+                <path class="diagram__line" d="M60 202Q210 102 360 202M60 202h300" />
+                <circle class="diagram__node" cx="60" cy="202" r="10" />
+                <circle class="diagram__node" cx="360" cy="202" r="10" />
+                <text
+                  class="diagram__label diagram__label--strong"
+                  x="210"
+                  y="232"
+                  text-anchor="middle"
+                >
+                  02
+                </text>
+                <text class="diagram__label" x="60" y="232" text-anchor="middle">Persona</text>
+                <text class="diagram__label" x="360" y="232" text-anchor="middle">Aprendizaje</text>
+              </g>
+              <g>
+                <path class="diagram__cable" d="M140 312v-34M210 312v-49M280 312v-34" />
+                <path class="diagram__line" d="M60 312Q210 212 360 312M60 312h300" />
+                <circle class="diagram__node" cx="60" cy="312" r="10" />
+                <circle class="diagram__node" cx="360" cy="312" r="10" />
+                <text
+                  class="diagram__label diagram__label--strong"
+                  x="210"
+                  y="342"
+                  text-anchor="middle"
+                >
+                  03
+                </text>
+                <text class="diagram__label" x="60" y="342" text-anchor="middle">Producto</text>
+                <text class="diagram__label" x="360" y="342" text-anchor="middle">Planeta</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           2. LOS 3 PUENTES — propuesta de valor
+           Cada dato externo fue verificado contra el informe original.
+           =================================================================== -->
+      <section class="section section--alt" id="puentes" aria-labelledby="titulo-puentes">
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow">El problema</p>
+            <h2 id="titulo-puentes">Tres puentes. Ahí se gana o se pierde el retorno.</h2>
+            <p class="section__intro">
+              Un producto no pierde valor en sus piezas. Lo pierde en las uniones. Mi trabajo es
+              diseñar esas uniones con el oficio de un artesano: medir, ajustar y terminar.
+            </p>
+          </header>
+
+          <ol class="bridge-list" role="list">
+            <li class="bridge">
+              <p class="bridge__number">01</p>
+              <h3>Persona ↔ IA</h3>
+              <p class="bridge__pain">
+                La IA se instala sobre flujos que ya estaban rotos. El resultado es más fricción y
+                menos uso.
+              </p>
+              <figure class="bridge__data">
+                <p>
+                  <strong class="bridge__figure">80% / 37%</strong>
+                  80% dice que la IA mejoró su productividad individual; solo 37% ve impacto en los
+                  resultados (EBIT) de su organización.
+                </p>
+                <figcaption class="bridge__source">
+                  McKinsey &amp; Company, <cite lang="en">The state of AI in 2026</cite>, agosto de
+                  2026.
+                </figcaption>
+              </figure>
+              <p class="bridge__action">
+                Rediseño el flujo completo: qué contexto recibe la IA, qué decide la persona y dónde
+                se valida cada resultado. Eso es Context Engineering aplicado a producto.
+              </p>
+              <a class="text-link" href="#caso-hope">
+                Ver la prueba: caso HOPE
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+              </a>
+            </li>
+            <li class="bridge">
+              <p class="bridge__number">02</p>
+              <h3>Persona ↔ aprendizaje</h3>
+              <p class="bridge__pain">
+                Sin andamiaje, el usuario se satura o delega todo en la herramienta. En ambos casos
+                deja de aprender y depende del soporte.
+              </p>
+              <figure class="bridge__data">
+                <p>
+                  <strong class="bridge__figure">+18% / −20%</strong>
+                  Con IA, las notas de tareas subieron 18% y las de exámenes bajaron 20%.
+                </p>
+                <figcaption class="bridge__source">
+                  Banco Mundial, <cite lang="en">World Development Report 2026</cite>.
+                </figcaption>
+              </figure>
+              <p class="bridge__action">
+                Aplico Learning Experience Design y gamificación: divido la complejidad, ordeno los
+                pasos y hago visible el progreso, para que el usuario gane autonomía pronto.
+              </p>
+              <a class="text-link" href="#caso-aprendizaje">
+                Ver la prueba: ADALID y Fundación Mujer
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+              </a>
+            </li>
+            <li class="bridge">
+              <p class="bridge__number">03</p>
+              <h3>Producto ↔ planeta</h3>
+              <p class="bridge__pain">
+                Las interfaces pesadas y la IA sobredimensionada suben a la vez el costo de
+                operación y la huella de carbono.
+              </p>
+              <figure class="bridge__data">
+                <p>
+                  <strong class="bridge__figure">1.60 a 13.95 g</strong>
+                  de CO2e por consulta de IA, según el modelo que se elija.
+                </p>
+                <figcaption class="bridge__source">
+                  Stanford HAI, <cite lang="en">AI Index Report 2026</cite>, p. 38.
+                </figcaption>
+              </figure>
+              <p class="bridge__action">
+                Aplico Sustainable UX con las Web Sustainability Guidelines del W3C como referencia:
+                menos peso, menos pasos y una IA dimensionada a cada tarea.
+              </p>
+              <a class="text-link" href="#caso-dolce">
+                Ver la prueba: caso Dolce Amaretto
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           3. FRANJA DE PRUEBA — solo cifras verificadas (CTX_AGENTS)
+           =================================================================== -->
+      <section class="stats" aria-label="Cifras clave">
+        <dl class="container stats__list">
+          <div class="stats__item">
+            <dt class="stats__label">
+              Programa de 18 meses aprobado por la Unión Europea (proyecto HOPE)
+            </dt>
+            <dd class="stats__value">EUR 1.1 M</dd>
+          </div>
+          <div class="stats__item">
+            <dt class="stats__label">
+              De 402 horas cada una, en el bootcamp de Diseño UX/UI de ADALID Chile
+            </dt>
+            <dd class="stats__value">4 cohortes</dd>
+          </div>
+          <div class="stats__item">
+            <dt class="stats__label">
+              Entre más de 220 propuestas: finalista mundial del Ad Age Global Cover Competition
+              2010
+            </dt>
+            <dd class="stats__value">Top 10</dd>
+          </div>
+          <div class="stats__item">
+            <dt class="stats__label">En diseño: de la dirección de arte al producto digital</dt>
+            <dd class="stats__value">20+ años</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ===================================================================
+           4. CASOS
+           =================================================================== -->
+      <section class="section" id="casos" aria-labelledby="titulo-casos">
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow">Casos</p>
+            <h2 id="titulo-casos">Tres casos, un mismo método</h2>
+            <p class="section__intro">
+              Casos reales, con organizaciones nombradas con autorización. Cada cifra indica si es
+              una meta, una proyección o un resultado.
+            </p>
+          </header>
+
+          <div class="case-list">
+            <!-- Caso 1: HOPE -->
+            <article class="case" id="caso-hope" aria-labelledby="titulo-hope">
+              <div class="case__main">
+                <header>
+                  <p class="case__meta">
+                    Puente 01 · Persona ↔ IA · Impacto social · 2025 – presente
+                  </p>
+                  <h3 class="case__title" id="titulo-hope">HOPE – Tejiendo Futuro</h3>
+                  <p class="case__role">
+                    Mi rol: lideré la redacción técnica y el diseño metodológico.
+                  </p>
+                </header>
+                <dl class="case__facts">
+                  <div>
+                    <dt class="case__label">Problema</dt>
+                    <dd class="case__text">
+                      Tres organizaciones, unas tres semanas y una convocatoria de la Unión Europea
+                      que exige marco lógico y datos verificables.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="case__label">Decisión clave</dt>
+                    <dd class="case__text">
+                      Organicé al equipo como una célula ágil y diseñé un flujo humano + IA: la IA
+                      aceleraba la redacción y el equipo validaba cada cifra.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="case__label">Resultado</dt>
+                    <dd class="case__text">
+                      Propuesta aprobada por la Unión Europea: un programa de 18 meses y EUR 1.1
+                      millones, diseñado para alcanzar a 9,600 personas migrantes en Costa Rica. Hoy
+                      está en ejecución.
+                    </dd>
+                  </div>
+                </dl>
+                <ul class="tag-list" role="list" aria-label="Métricas del caso">
+                  <li class="tag">EUR 1.1 M</li>
+                  <li class="tag">18 meses</li>
+                  <li class="tag">Unas 3 semanas de elaboración</li>
+                  <li class="tag">9,600 personas (meta)</li>
+                </ul>
+              </div>
+
+              <figure class="case__aside">
+                <svg
+                  class="diagram"
+                  viewBox="0 0 360 250"
+                  role="img"
+                  aria-labelledby="diagrama-hope"
+                >
+                  <title id="diagrama-hope">
+                    Ciclo diario: daily de estado, bloque colaborativo de 7:00 a 15:00, trabajo
+                    individual y revisión de cierre, sobre un tablero Kanban de tres columnas.
+                  </title>
+                  <rect
+                    class="diagram__block diagram__block--accent"
+                    x="0"
+                    y="20"
+                    width="44"
+                    height="40"
+                    rx="6"
+                  />
+                  <text
+                    class="diagram__label diagram__label--on-accent"
+                    x="22"
+                    y="45"
+                    text-anchor="middle"
+                  >
+                    Daily
+                  </text>
+                  <rect
+                    class="diagram__block diagram__block--accent"
+                    x="50"
+                    y="20"
+                    width="160"
+                    height="40"
+                    rx="6"
+                  />
+                  <text
+                    class="diagram__label diagram__label--on-accent"
+                    x="130"
+                    y="45"
+                    text-anchor="middle"
+                  >
+                    7:00–15:00 en equipo
+                  </text>
+                  <rect class="diagram__block" x="216" y="20" width="90" height="40" rx="6" />
+                  <text class="diagram__label" x="261" y="45" text-anchor="middle">Individual</text>
+                  <rect class="diagram__block" x="312" y="20" width="48" height="40" rx="6" />
+                  <text class="diagram__label" x="336" y="45" text-anchor="middle">Cierre</text>
+                  <text class="diagram__label diagram__label--strong" x="0" y="100">
+                    Tablero Kanban
+                  </text>
+                  <rect class="diagram__block" x="0" y="112" width="112" height="128" rx="8" />
+                  <rect class="diagram__block" x="124" y="112" width="112" height="128" rx="8" />
+                  <rect class="diagram__block" x="248" y="112" width="112" height="128" rx="8" />
+                  <text class="diagram__label" x="56" y="136" text-anchor="middle">Por hacer</text>
+                  <text class="diagram__label" x="180" y="136" text-anchor="middle">En curso</text>
+                  <text class="diagram__label" x="304" y="136" text-anchor="middle">Hecho</text>
+                  <path
+                    class="diagram__cable"
+                    d="M14 154h84M14 174h84M14 194h84M138 154h84M138 174h84M262 154h84M262 174h84M262 194h84M262 214h84"
+                  />
+                </svg>
+                <figcaption class="case__caption">
+                  Reconstrucción ilustrativa del ciclo diario. No es material original del proyecto.
+                </figcaption>
+              </figure>
+
+              <div class="case__details">
+                <details class="disclosure">
+                  <summary class="disclosure__summary">Cómo lo hice</summary>
+                  <div class="disclosure__body">
+                    <p>
+                      <strong>Ritmo.</strong> Ciclos diarios: un bloque colaborativo de 7:00 a 15:00
+                      y luego trabajo individual. Tablero Kanban, una daily para revisar el estado y
+                      una revisión de cierre para ajustar el alcance.
+                    </p>
+                    <p>
+                      <strong>Humano + IA.</strong> Yo definía las actividades y las tareas de cada
+                      rama del programa. La IA ayudaba a convertirlas en la redacción del marco
+                      lógico, con la estructura que exige la UE. Las decisiones, los indicadores y
+                      las cifras los validaba el equipo.
+                    </p>
+                    <p>
+                      <strong>Equipo.</strong> No lo hice solo. Trabajé en dupla con la contadora
+                      del proyecto, que llevó el presupuesto. Brot für die Welt coordinó los
+                      formatos y la metodología de la UE. Fundación Mujer y Asociación Bosques Sin
+                      Fronteras completaron el consorcio.
+                    </p>
+                    <p>
+                      <strong>Datos.</strong> Cada cifra del contexto migratorio vino de una fuente
+                      citada: ACNUR, INEC, DGME y CIEP-UCR.
+                    </p>
+                    <p><strong>Tres decisiones de diseño.</strong></p>
+                    <ol class="disclosure__list">
+                      <li>
+                        Inclusión transversal. Las actividades separadas no cabían en el
+                        presupuesto. La inclusión pasó a ser una cuota mínima de participación en
+                        cada actividad.
+                      </li>
+                      <li>
+                        Alcance concentrado. Los 21 huertos escolares (6,000 estudiantes) se
+                        enfocaron en dos cantones, Upala y Los Chiles, para que la logística fuera
+                        viable.
+                      </li>
+                      <li>
+                        Sin barrera de acceso. Cada actividad formativa incluye un apoyo de
+                        transporte por participante, porque ese costo determinaba la asistencia.
+                      </li>
+                    </ol>
+                    <p>
+                      <strong>Lo que diseñé dentro del programa.</strong> Dos cursos con IA:
+                      «Emprende IA – Conectadas al Futuro» (100 participantes) e IA para la creación
+                      de currículum (120). También seis círculos de confianza para mujeres.
+                    </p>
+                    <p>
+                      <strong>Hoy.</strong> Facilito los talleres de branding y marketing digital
+                      para las emprendedoras del programa.
+                    </p>
+                  </div>
+                </details>
+                <details class="disclosure">
+                  <summary class="disclosure__summary">Qué hay detrás de las cifras</summary>
+                  <div class="disclosure__body">
+                    <ul class="disclosure__list">
+                      <li>EUR 1.1 M: costos elegibles totales de la propuesta.</li>
+                      <li>
+                        9,600 personas: es la meta del programa, no un resultado medido. Se
+                        actualizará con el primer informe de avance.
+                      </li>
+                      <li>
+                        Unas 3 semanas: una de redacción intensiva y dos de coordinación con el
+                        consorcio.
+                      </li>
+                      <li>
+                        Aprobación: la propuesta superó la evaluación y pasó a contratación con la
+                        Delegación de la UE en octubre de 2025. El programa tiene convocatorias
+                        públicas activas.
+                      </li>
+                      <li>
+                        Mi rol: consta en una carta de Brot für die Welt (septiembre de 2026).
+                      </li>
+                      <li>
+                        Confidencialidad: no se muestran presupuestos desglosados ni datos de
+                        participantes.
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+            </article>
+
+            <!-- Caso 2: aprendizaje (ADALID + Fundación Mujer) -->
+            <article class="case" id="caso-aprendizaje" aria-labelledby="titulo-aprendizaje">
+              <div class="case__main">
+                <header>
+                  <p class="case__meta">Puente 02 · Persona ↔ aprendizaje · EdTech · 2021 – 2024</p>
+                  <h3 class="case__title" id="titulo-aprendizaje">
+                    Gamificación con propósito: ADALID Chile y Fundación Mujer
+                  </h3>
+                  <p class="case__role">
+                    Mi rol: de Adviser (2022) a relator principal (2023–2024) en ADALID; diseñador y
+                    facilitador en Fundación Mujer.
+                  </p>
+                </header>
+                <dl class="case__facts">
+                  <div>
+                    <dt class="case__label">Problema</dt>
+                    <dd class="case__text">
+                      Sostener el aprendizaje y la motivación en un bootcamp remoto de 402 horas por
+                      cohorte, dentro de programas estatales de empleabilidad.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="case__label">Decisión clave</dt>
+                    <dd class="case__text">
+                      Convertí cada tema técnico en una mecánica de juego que entrena la misma
+                      habilidad que enseña. Encontrar errores en una interfaz se practica
+                      encontrando errores; ordenar información se practica ordenando.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="case__label">Resultado</dt>
+                    <dd class="case__text">
+                      Cuatro cohortes acompañadas entre 2022 y 2024, tres de ellas como relator
+                      principal. En el aula observé más participación y una cultura en la que el
+                      error se asumía como parte del proceso de diseño.
+                    </dd>
+                  </div>
+                </dl>
+                <ul class="tag-list" role="list" aria-label="Métricas del caso">
+                  <li class="tag">4 cohortes de 402 h</li>
+                  <li class="tag">100% remoto</li>
+                  <li class="tag">Gino's: 6 de 7 completaron la compra</li>
+                  <li class="tag">Fundación Mujer: 2 cohortes, 60 personas</li>
+                </ul>
+              </div>
+
+              <div class="case__aside">
+                <table class="mechanics-table">
+                  <caption>
+                    Cada mecánica entrena la habilidad que enseña
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Tema</th>
+                      <th scope="col">Mecánica</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Heurísticas de usabilidad</th>
+                      <td>Retos contrarreloj para detectar errores en pantallas reales</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Arquitectura de información</th>
+                      <td>Card sorting con puntos para agrupar y jerarquizar</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Design Thinking y Kanban</th>
+                      <td>
+                        Niveles que avanzan como un tablero: cada etapa desbloquea la siguiente
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Fundamentos de código</th>
+                      <td>«Encuentra el bug» y «completa el código» con rachas de aciertos</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="case__details">
+                <details class="disclosure">
+                  <summary class="disclosure__summary">Cómo lo hice</summary>
+                  <div class="disclosure__body">
+                    <p>
+                      <strong>El reto.</strong> Temas abstractos (heurísticas, arquitectura de
+                      información, sistemas de diseño, metodologías ágiles, lógica de código) en un
+                      bootcamp remoto e intensivo: alta carga cognitiva y fatiga.
+                    </p>
+                    <p>
+                      <strong>De la herramienta al sistema propio.</strong> Empecé con Kahoot
+                      (puntos, rachas y retroalimentación inmediata) y escalé hacia dinámicas
+                      diseñadas para cada tema. El error dejó de ser fracaso y pasó a ser
+                      retroalimentación.
+                    </p>
+                    <p>
+                      <strong>Equipos que entregan.</strong> Formé células Scrum de estudiantes con
+                      un kit de investigación completo: encuesta, diagrama de afinidad, entrevistas,
+                      test SUS, customer journey y benchmark. Un ejemplo: un equipo que dirigí
+                      rediseñó el flujo de compra de Gino's Pizza, un negocio familiar real de
+                      Santiago de Chile. En la prueba del prototipo, 6 de 7 personas completaron la
+                      compra, con 31 segundos de promedio.
+                    </p>
+                    <p>
+                      <strong>El mismo enfoque en Costa Rica.</strong> En el curso Técnico de Diseño
+                      Gráfico de Fundación Mujer, para personas emprendedoras, refugiadas y
+                      solicitantes de refugio, diseñé un sistema de gamificación con Design
+                      Thinking. Segmenté a las participantes según su tipo de jugador (modelo HEXAD
+                      de Marczewski) y diseñé insignias que premian conductas: dedicación, gestión
+                      del tiempo, valentía, valor social y trabajo en equipo. La decisión central:
+                      medir por separado la «actividad en estudio» y la «actividad de mi marca»,
+                      para premiar que apliquen lo aprendido en su propio emprendimiento. Lo
+                      implementé en dos cohortes (32 y 28 personas), en formato digital y en papel.
+                    </p>
+                    <p>
+                      En Fundación Mujer también diseñé e impartí siete ediciones del curso Diseño y
+                      Creación de Marca y cinco de Diseño para Redes Sociales.
+                    </p>
+                    <p>
+                      <a
+                        class="text-link"
+                        href="https://www.behance.net/gallery/156655533/Gamificacion-en-Capacitacion"
+                      >
+                        Ver el sistema de gamificación en Behance
+                        <svg class="icon" aria-hidden="true">
+                          <use href="#icon-arrow-up-right" />
+                        </svg>
+                      </a>
+                    </p>
+                  </div>
+                </details>
+                <details class="disclosure">
+                  <summary class="disclosure__summary">Qué hay detrás de las cifras</summary>
+                  <div class="disclosure__body">
+                    <ul class="disclosure__list">
+                      <li>
+                        4 cohortes y 402 horas: contratos y certificados de ADALID, 2022 a 2024.
+                      </li>
+                      <li>
+                        Programas: Talento Digital para Chile 2023 y Becas Laborales (SOFOFA/SENCE).
+                      </li>
+                      <li>
+                        Gino's Pizza: prueba de usabilidad con 7 personas sobre el prototipo, no
+                        datos de producción.
+                      </li>
+                      <li>
+                        Fundación Mujer: 7 + 5 ediciones con constancias de la Dirección (2023). Las
+                        dos cohortes gamificadas (32 y 28 personas) son un dato declarado.
+                      </li>
+                      <li>
+                        Participación y cultura del error: observaciones del aula, no métricas
+                        medidas.
+                      </li>
+                      <li>
+                        No se publican cifras de matrícula ni de permanencia mientras no haya un
+                        documento que las respalde.
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+            </article>
+
+            <!-- Caso 3: Dolce Amaretto -->
+            <article class="case" id="caso-dolce" aria-labelledby="titulo-dolce">
+              <div class="case__main">
+                <header>
+                  <p class="case__meta">
+                    Puente 03 · Producto ↔ planeta · Negocio sostenible · 2018 – presente
+                  </p>
+                  <h3 class="case__title" id="titulo-dolce">
+                    Dolce Amaretto Sustainable Boutique Bakery
+                  </h3>
+                  <p class="case__role">
+                    Mi rol: Product &amp; UX Strategy Consultant. Estrategia de marca y de producto,
+                    investigación UX y arquitectura de información.
+                  </p>
+                </header>
+                <dl class="case__facts">
+                  <div>
+                    <dt class="case__label">Problema</dt>
+                    <dd class="case__text">
+                      Crecer con un modelo de economía circular y una marca capaz de atender a
+                      consumidores y a cuentas corporativas.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="case__label">Decisión clave</dt>
+                    <dd class="case__text">
+                      Llevé la economía circular al producto: los subproductos se convirtieron en
+                      líneas con marca y empaque propios.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="case__label">Resultado</dt>
+                    <dd class="case__text">
+                      Ventas y cotizaciones con cuentas corporativas como P&amp;G, Pan-American
+                      Life, Accenture y Emerson. El proyecto de Producción más Limpia proyecta entre
+                      15% y 25% menos consumo de energía y fue reconocido como propuesta
+                      sobresaliente de Costa Rica por el ICAP.
+                    </dd>
+                  </div>
+                </dl>
+                <ul class="tag-list" role="list" aria-label="Métricas del caso">
+                  <li class="tag">Propuesta sobresaliente de Costa Rica (ICAP 2025)</li>
+                  <li class="tag">Economía circular</li>
+                  <li class="tag">B2B y B2C</li>
+                  <li class="tag">15–25% menos energía (proyectado)</li>
+                </ul>
+              </div>
+
+              <figure class="case__aside">
+                <img
+                  class="case__image"
+                  src="img/dolce-amaretto-alfajores-signature.webp"
+                  alt="Alfajor envuelto en papel dorado con la etiqueta rosa «Alfajores Signature, fresas del Poás»."
+                  width="480"
+                  height="592"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="case__caption">
+                  Empaque de la línea Alfajores Signature.
+                </figcaption>
+              </figure>
+
+              <div class="case__details">
+                <details class="disclosure">
+                  <summary class="disclosure__summary">Cómo lo hice</summary>
+                  <div class="disclosure__body">
+                    <p>
+                      <strong>Producto circular.</strong> La confitura de piña y la infusión de su
+                      cáscara aprovechan la fruta completa. La línea Alfajores Signature equilibra
+                      el uso de claras y yemas con la producción de macarrons.
+                    </p>
+                    <p>
+                      <strong>Marca.</strong> Concepto, branding y empaque de las líneas, con el
+                      oficio de la dirección de arte.
+                    </p>
+                    <p>
+                      <strong>Experiencia B2B y B2C.</strong> Investigación UX y arquitectura de
+                      información para ambos canales. El sitio corre sobre una plantilla externa: mi
+                      aporte es la investigación, la estructura y la experiencia, no el código de
+                      producción.
+                    </p>
+                    <p>
+                      <strong>Producción más Limpia (2025).</strong> Un plan con metas de 15–25%
+                      menos energía, 10% menos agua, 80% de reciclaje y de 1.5 a 2 toneladas de CO2e
+                      evitadas al año.
+                    </p>
+                    <p>
+                      <strong>Reconocimiento.</strong> Presenté el proyecto ante el ICAP como
+                      representante de Dolce Amaretto. El ICAP lo distinguió como propuesta
+                      sobresaliente de Costa Rica en su programa regional de Eficiencia Energética,
+                      Producción Más Limpia y Financiamiento Verde (2025).
+                    </p>
+                    <p>
+                      <strong>Lo que sigue.</strong> Una web app de trazabilidad de CO2 con códigos
+                      QR, en planificación.
+                    </p>
+                  </div>
+                </details>
+                <details class="disclosure">
+                  <summary class="disclosure__summary">Qué hay detrás de las cifras</summary>
+                  <div class="disclosure__body">
+                    <ul class="disclosure__list">
+                      <li>
+                        Clientes: orden de compra de P&amp;G (noviembre de 2026), servicio
+                        confirmado con Pan-American Life (julio de 2026) y solicitudes de cotización
+                        de Accenture y Emerson (noviembre de 2026).
+                      </li>
+                      <li>
+                        Energía, agua, reciclaje y CO2e: son proyecciones del proyecto de Producción
+                        más Limpia, no resultados medidos.
+                      </li>
+                      <li>Reconocimiento: certificado del ICAP del 18 de noviembre de 2025.</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           5. DIAGNÓSTICO DE 60 SEGUNDOS — aprendizaje activo
+           Sin correo y sin registro: el resultado se calcula en el navegador.
+           =================================================================== -->
+      <section class="section section--alt" id="diagnostico" aria-labelledby="titulo-diagnostico">
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow">Diagnóstico de 60 segundos</p>
+            <h2 id="titulo-diagnostico">¿Cuál de tus puentes pierde más valor?</h2>
+            <p class="section__intro">
+              Tres preguntas. Sin correo y sin registro: el resultado se calcula en tu navegador y
+              no se guarda.
+            </p>
+          </header>
+
+          <form class="quiz" data-quiz>
+            <fieldset class="quiz__question" data-bridge="ia" data-bridge-name="Persona ↔ IA">
+              <legend class="quiz__legend">
+                1. Tu producto o tu equipo ya usa IA. ¿Qué pasa después de la primera semana?
+              </legend>
+              <label class="quiz__option"
+                ><input type="radio" name="q1" value="0" /> La usan y confían en el
+                resultado.</label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q1" value="1" /> La usan, pero revisan o rehacen casi
+                todo.</label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q1" value="2" /> La probaron y volvieron al flujo
+                anterior.</label
+              >
+            </fieldset>
+
+            <fieldset
+              class="quiz__question"
+              data-bridge="aprendizaje"
+              data-bridge-name="Persona ↔ aprendizaje"
+            >
+              <legend class="quiz__legend">
+                2. Llega un usuario nuevo. ¿Cuánto tarda en lograr su primer resultado útil sin
+                ayuda?
+              </legend>
+              <label class="quiz__option"
+                ><input type="radio" name="q2" value="0" /> Lo logra en la primera sesión.</label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q2" value="1" /> Lo logra tras varios intentos o un
+                tutorial largo.</label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q2" value="2" /> Necesita soporte o capacitación para
+                arrancar.</label
+              >
+            </fieldset>
+
+            <fieldset
+              class="quiz__question"
+              data-bridge="planeta"
+              data-bridge-name="Producto ↔ planeta"
+            >
+              <legend class="quiz__legend">
+                3. ¿Sabes cuánto pesa tu flujo principal y cuánta IA consume cada tarea?
+              </legend>
+              <label class="quiz__option"
+                ><input type="radio" name="q3" value="0" /> Sí: lo medimos y tenemos metas.</label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q3" value="1" /> Lo medimos a veces, sin metas.</label
+              >
+              <label class="quiz__option"
+                ><input type="radio" name="q3" value="2" /> No lo medimos.</label
+              >
+            </fieldset>
+
+            <p class="quiz__nojs">
+              Responde mentalmente. Si en alguna pregunta elegirías la tercera opción, ese es el
+              puente por donde empezar.
+            </p>
+            <button class="button button--primary quiz__submit" type="submit">
+              Ver mi diagnóstico
+            </button>
+            <p class="quiz__error" data-quiz-error hidden>
+              Responde las tres preguntas para ver tu diagnóstico.
+            </p>
+            <div class="quiz__result" data-quiz-result aria-live="polite"></div>
+          </form>
+
+          <!-- Plantillas de resultado: el texto vive aquí; js/main.js elige cuál mostrar. -->
+          <template data-outcome="ia">
+            <p class="quiz__outcome-title">Tu puente más débil: Persona ↔ IA</p>
+            <p data-outcome-body>
+              Tu equipo tiene la herramienta, pero no el flujo. Es un patrón frecuente: 80% reporta
+              más productividad individual y solo 37% ve impacto en resultados (McKinsey, 2026). Lo
+              primero que revisaría: qué contexto recibe la IA, quién valida su resultado y en qué
+              paso se abandona.
+            </p>
+            <div class="quiz__actions">
+              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="text-link" href="#auditoria">Ver cómo funciona la auditoría</a>
+            </div>
+          </template>
+          <template data-outcome="aprendizaje">
+            <p class="quiz__outcome-title">Tu puente más débil: Persona ↔ aprendizaje</p>
+            <p data-outcome-body>
+              Tu producto pide más de lo que enseña. Y la IA no lo resuelve sola: puede erosionar el
+              aprendizaje real (tareas +18%, exámenes −20%; Banco Mundial, 2026). Lo primero que
+              revisaría: cuántos pasos hay hasta el primer resultado útil y qué puede aprender el
+              usuario haciendo.
+            </p>
+            <div class="quiz__actions">
+              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="text-link" href="#auditoria">Ver cómo funciona la auditoría</a>
+            </div>
+          </template>
+          <template data-outcome="planeta">
+            <p class="quiz__outcome-title">Tu puente más débil: Producto ↔ planeta</p>
+            <p data-outcome-body>
+              Lo que no se mide no se puede reducir. Las emisiones por consulta de IA varían de 1.60
+              a 13.95 gCO2e según el modelo (Stanford HAI, 2026): elegir y dimensionar es una
+              decisión de diseño. Lo primero que revisaría: el peso de tu flujo principal y si cada
+              tarea usa el modelo que necesita.
+            </p>
+            <div class="quiz__actions">
+              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="text-link" href="#auditoria">Ver cómo funciona la auditoría</a>
+            </div>
+          </template>
+          <template data-outcome="none">
+            <p class="quiz__outcome-title">Tus tres puentes se sostienen</p>
+            <p data-outcome-body>
+              Si quieres una segunda opinión sobre un flujo concreto, conversemos.
+            </p>
+            <div class="quiz__actions">
+              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           6. AUDITORÍA — el servicio
+           =================================================================== -->
+      <section class="section" id="auditoria" aria-labelledby="titulo-auditoria">
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow">Servicio</p>
+            <h2 id="titulo-auditoria" lang="en">AI Workflow &amp; Sustainable UX Audit</h2>
+            <p class="section__intro">
+              En 15 días, un flujo crítico de tu producto auditado, rediseñado y prototipado, con un
+              plan para implementarlo.
+            </p>
+          </header>
+
+          <div class="offer">
+            <div class="offer__block">
+              <h3 class="offer__title">Para quién</h3>
+              <p>
+                Founders, CPOs y líderes de producto en SaaS, EdTech y Climate Tech que ya
+                integraron IA y no ven el retorno en adopción o retención.
+              </p>
+              <h3 class="offer__title">Tres frentes</h3>
+              <ol class="offer__fronts" role="list">
+                <li class="offer__item">
+                  <strong>Flujo humano + IA.</strong> Contexto, puntos de decisión y validación
+                  humana.
+                </li>
+                <li class="offer__item">
+                  <strong>Aprendizaje y onboarding.</strong> Carga cognitiva, andamiaje y tiempo
+                  hasta el primer resultado útil.
+                </li>
+                <li class="offer__item">
+                  <strong>Peso y eficiencia.</strong> Rendimiento, accesibilidad y dimensionamiento
+                  de la IA.
+                </li>
+              </ol>
+            </div>
+
+            <div class="offer__block">
+              <h3 class="offer__title">15 días, tres fases</h3>
+              <ol class="offer__phases" role="list">
+                <li class="offer__item">
+                  <span class="offer__days">Días 1–4 · Diagnóstico</span>
+                  Mapa del flujo actual, revisión heurística y de accesibilidad, medición de peso y
+                  conversaciones con tu equipo.
+                </li>
+                <li class="offer__item">
+                  <span class="offer__days">Días 5–14 · Rediseño</span>
+                  El flujo crítico rediseñado y un prototipo navegable, revisado contigo en puntos
+                  de control.
+                </li>
+                <li class="offer__item">
+                  <span class="offer__days">Día 15 · Plan</span>
+                  Prioridades, métricas de seguimiento y próximos pasos, presentados a tu equipo.
+                </li>
+              </ol>
+              <h3 class="offer__title">Entregables</h3>
+              <ul class="tag-list" role="list">
+                <li class="tag">Informe priorizado de hallazgos</li>
+                <li class="tag">Flujo rediseñado</li>
+                <li class="tag">Prototipo navegable</li>
+                <li class="tag">Plan de implementación con métricas</li>
+              </ul>
+              <p class="offer__note">
+                Qué no es: no incluye desarrollo back-end ni la construcción de una plataforma.
+                Trabajo sobre tu flujo y con tu equipo, en remoto. En español; en inglés, por
+                escrito y de forma asíncrona.
+              </p>
+            </div>
+
+            <div class="offer__cta">
+              <p>
+                Es un servicio nuevo: empaqueta el método que usé en los tres casos de esta página.
+                El alcance y la inversión se definen en el diagnóstico inicial.
+              </p>
+              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           7. PRUEBA VIVA — cómo está hecho este sitio
+           =================================================================== -->
+      <section class="section section--alt" id="sitio" aria-labelledby="titulo-sitio">
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow">Prueba viva</p>
+            <h2 id="titulo-sitio">Este sitio es la primera prueba</h2>
+            <p class="section__intro">Lo que propongo para tu producto está aplicado aquí.</p>
+          </header>
+
+          <div class="proof">
+            <p class="proof__meter">
+              <strong class="proof__value" data-page-weight>191 kB</strong>
+              <span data-page-weight-note>pesa esta página completa, medida al publicarla.</span>
+            </p>
+            <ul class="proof__facts" role="list">
+              <li class="proof__fact">
+                <strong>Sin rastreo</strong>
+                Sin cookies, sin rastreadores y sin peticiones a terceros.
+              </li>
+              <li class="proof__fact">
+                <strong>Oscuro por defecto</strong>
+                En pantallas OLED consume menos energía. Tú eliges el tema y el sitio lo recuerda.
+              </li>
+              <li class="proof__fact">
+                <strong>Sistema propio</strong>
+                Tokens de color, tipografía y espacio, y componentes reutilizables. HTML, CSS y
+                JavaScript sin frameworks.
+              </li>
+              <li class="proof__fact">
+                <strong>Accesible</strong>
+                Navegación completa por teclado. Texto en contraste AAA (7:1 o más) en ambos temas.
+              </li>
+              <li class="proof__fact">
+                <strong>Humano + IA</strong>
+                Definí la arquitectura, el contenido y los criterios de calidad. La IA generó el
+                código y yo lo revisé.
+              </li>
+              <li class="proof__fact">
+                <strong>Mejora progresiva</strong>
+                Sin JavaScript todo el contenido sigue disponible, incluido el diagnóstico.
+              </li>
+            </ul>
+            <p class="proof__origin">
+              Nació en 2023 como mi proyecto final de front-end en Eidos Global. Lo reconstruí en
+              2026.
+              <a class="text-link" href="https://github.com/rmochuelo/rmochuelo.github.io">
+                Ver el código en GitHub
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           8. TRAYECTORIA Y CREDENCIALES
+           =================================================================== -->
+      <section class="section" id="trayectoria" aria-labelledby="titulo-trayectoria">
+        <div class="container credentials">
+          <header class="section__header">
+            <p class="section__eyebrow">Trayectoria</p>
+            <h2 id="titulo-trayectoria">Veinte años de oficio detrás de cada decisión</h2>
+            <p class="section__intro">
+              Lead Product UX Designer con más de 20 años en diseño. Hasta 2017, dirección de arte y
+              marca en agencias. Desde 2018, UX, diseño de aprendizaje, sostenibilidad digital y
+              front-end. Disponible para equipos remotos de LATAM, EE. UU. y Europa. Español nativo;
+              inglés para trabajo escrito y asíncrono.
+            </p>
+          </header>
+
+          <div>
+            <ol class="timeline" role="list">
+              <li class="timeline__item">
+                <p class="timeline__period"><time datetime="2025">2025</time> – presente</p>
+                <h3 class="timeline__role">Líder de redacción técnica y diseño metodológico</h3>
+                <p class="timeline__org">
+                  Proyecto HOPE – Tejiendo Futuro · Fundación Mujer, Costa Rica
+                </p>
+              </li>
+              <li class="timeline__item">
+                <p class="timeline__period">
+                  <time datetime="2022">2022</time> – <time datetime="2024">2024</time>
+                </p>
+                <h3 class="timeline__role">Relator principal de Diseño UX/UI</h3>
+                <p class="timeline__org">ADALID · Chile, remoto</p>
+              </li>
+              <li class="timeline__item">
+                <p class="timeline__period"><time datetime="2018">2018</time> – presente</p>
+                <h3 class="timeline__role">Product &amp; UX Strategy Consultant</h3>
+                <p class="timeline__org">Dolce Amaretto Sustainable Boutique Bakery · Costa Rica</p>
+              </li>
+              <li class="timeline__item">
+                <p class="timeline__period">
+                  <time datetime="2000">2000</time> – <time datetime="2017">2017</time>
+                </p>
+                <h3 class="timeline__role">Senior Art Director &amp; Brand Strategist</h3>
+                <p class="timeline__org">Agencias y marcas globales · LATAM</p>
+                <p class="timeline__description">
+                  ARS DDB, Creatividad &amp; Media, Editores Orientales y proyectos freelance.
+                  Cuentas como Laboratorios Abbott, Revlon y Pirelli.
+                </p>
+              </li>
+            </ol>
+
+            <details class="disclosure">
+              <summary class="disclosure__summary">Trayectoria completa</summary>
+              <div class="disclosure__body">
+                <p>
+                  <strong>2021 – presente · Product Designer y facilitador.</strong> Fundación
+                  Mujer, Costa Rica. Cursos de marca, redes sociales, branding con IA y
+                  alfabetización digital para personas emprendedoras, refugiadas y solicitantes de
+                  refugio.
+                </p>
+                <p>
+                  <strong>2000 – 2017 · Agencias y marcas.</strong> Dirección de arte y campañas de
+                  marca en ARS DDB y Creatividad &amp; Media (Caracas); gestión de color, control de
+                  calidad y capacitación a clientes en Editores Orientales; proyectos freelance de
+                  branding.
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <div>
+            <h3 class="credentials__subtitle">Reconocimientos</h3>
+            <div class="recognition">
+              <ul class="recognition__list" role="list">
+                <li class="recognition__item">
+                  <strong>Finalista mundial, Ad Age Global Cover Competition 2010</strong>
+                  <p>
+                    Mi portada <cite lang="en">Age of Inspiration</cite> fue una de las diez
+                    finalistas entre más de 220 propuestas. Se exhibió en Cannes durante Cannes
+                    Lions 2010.
+                  </p>
+                </li>
+                <li class="recognition__item">
+                  <strong>Propuesta sobresaliente de Costa Rica, ICAP 2025</strong>
+                  <p>
+                    Por el proyecto de Producción más Limpia de Dolce Amaretto, en el Programa de
+                    Desarrollo de Capacidades para MiPYMEs en Eficiencia Energética, Producción Más
+                    Limpia y Financiamiento Verde.
+                  </p>
+                </li>
+              </ul>
+              <figure class="recognition__figure">
+                <img
+                  class="recognition__image"
+                  src="img/age-of-inspiration-cannes-2010.webp"
+                  alt="Portada «Age of Inspiration» en el muro de finalistas, con la placa «Ramón Puentes, Caracas, Venezuela»."
+                  width="510"
+                  height="780"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="recognition__caption">
+                  La portada en la exhibición de finalistas. Cannes, junio de 2010.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="credentials__subtitle">Formación</h3>
+            <ul class="education-list" role="list">
+              <li class="education">
+                <p class="education__year"><time datetime="2026">2026</time></p>
+                <p>
+                  CS50: Introduction to Computer Science (en curso)
+                  <span class="education__school">· Harvard University</span>
+                </p>
+              </li>
+              <li class="education">
+                <p class="education__year"><time datetime="2025">2025</time></p>
+                <p>
+                  Seminario en Producción más Limpia (64 horas, nota de 100)
+                  <span class="education__school">· ICAP</span>
+                </p>
+              </li>
+              <li class="education">
+                <p class="education__year"><time datetime="2023">2023</time></p>
+                <p>
+                  Especialización en Front-End Web Development
+                  <span class="education__school">· Eidos Global</span>
+                </p>
+              </li>
+              <li class="education">
+                <p class="education__year">
+                  <time datetime="2021">2021</time> – <time datetime="2024">2024</time>
+                </p>
+                <p>
+                  Certificaciones en UX/UI Design, Product Design, Gamificación y System Thinking
+                  <span class="education__school">· Platzi</span>
+                </p>
+              </li>
+              <li class="education">
+                <p class="education__year"><time datetime="2010">2010</time></p>
+                <p>
+                  Diplomado en Gerencia de Medios de Comunicación
+                  <span class="education__school">· Universidad Monteávila</span>
+                </p>
+              </li>
+              <li class="education">
+                <p class="education__year"><time datetime="2002">2002</time></p>
+                <p>
+                  Técnico Superior Universitario en Diseño Gráfico Publicitario Computarizado
+                  <span class="education__school"
+                    >· Instituto Universitario Monseñor de Talavera</span
+                  >
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="credentials__subtitle">Habilidades</h3>
+            <div class="skill-grid">
+              <div class="skill-grid__group">
+                <h4 class="skill-grid__title">IA aplicada</h4>
+                <ul class="tag-list" role="list">
+                  <li class="tag">Context Engineering</li>
+                  <li class="tag">Flujos humano + IA</li>
+                  <li class="tag">Verificación de resultados</li>
+                </ul>
+              </div>
+              <div class="skill-grid__group">
+                <h4 class="skill-grid__title">Learning Experience Design</h4>
+                <ul class="tag-list" role="list">
+                  <li class="tag">Gamificación</li>
+                  <li class="tag">Evaluación formativa</li>
+                  <li class="tag">Design Thinking</li>
+                  <li class="tag">Facilitación y mentoría</li>
+                </ul>
+              </div>
+              <div class="skill-grid__group">
+                <h4 class="skill-grid__title">Sustainable UX</h4>
+                <ul class="tag-list" role="list">
+                  <li class="tag">Web Sustainability Guidelines</li>
+                  <li class="tag">Accesibilidad (WCAG)</li>
+                  <li class="tag">Economía circular</li>
+                  <li class="tag">Criterios ASG</li>
+                </ul>
+              </div>
+              <div class="skill-grid__group">
+                <h4 class="skill-grid__title">Producto y marca</h4>
+                <ul class="tag-list" role="list">
+                  <li class="tag">UX Research</li>
+                  <li class="tag">Arquitectura de información</li>
+                  <li class="tag">Figma y design systems</li>
+                  <li class="tag">HTML, SCSS y JavaScript</li>
+                  <li class="tag">Dirección de arte</li>
+                  <li class="tag">Scrum y Kanban</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           9. CONTACTO
+           =================================================================== -->
+      <section class="section section--alt" id="contacto" aria-labelledby="titulo-contacto">
+        <div class="container contact">
+          <header class="section__header">
+            <p class="section__eyebrow">Contacto</p>
+            <h2 id="titulo-contacto">Empecemos por un diagnóstico</h2>
+            <p class="section__intro">
+              30 minutos, sin compromiso. Cuéntame qué flujo te preocupa y te digo por dónde
+              empezaría.
+            </p>
+          </header>
+
+          <a
+            class="button button--primary"
+            href="mailto:ramonpuentes@gmail.com?subject=Diagn%C3%B3stico%20de%2030%20min%20%C2%B7%20AI%20Workflow%20%26%20Sustainable%20UX&amp;body=Hola%2C%20Ram%C3%B3n%3A%0D%0A%0D%0AProducto%20o%20empresa%3A%0D%0AFlujo%20que%20me%20preocupa%3A%0D%0ADos%20horarios%20posibles%20%28con%20zona%20horaria%29%3A%0D%0A"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg>
+            Agendar diagnóstico de 30 min
+          </a>
+
+          <p class="contact__note">
+            ¿Evalúas talento para un rol remoto de producto o UX? Escríbeme o revisa mi perfil en
+            LinkedIn.
+          </p>
+
+          <ul class="contact__links" role="list">
+            <li>
+              <a class="button button--secondary" href="https://www.linkedin.com/in/ramonpuentes">
+                LinkedIn
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
+              </a>
+            </li>
+            <li>
+              <a class="button button--secondary" href="https://github.com/rmochuelo">
+                GitHub
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
+              </a>
+            </li>
+            <li>
+              <a class="button button--secondary" href="https://www.behance.net/ramonpuentes">
+                Behance
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up-right" /></svg>
+              </a>
+            </li>
+            <li>
+              <a class="button button--secondary" href="mailto:ramonpuentes@gmail.com">
+                Correo
+                <svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================================
+         10. PIE DE PÁGINA
+         ===================================================================== -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p class="site-footer__note">
+          © <span data-current-year>2026</span> Ramón Puentes · Heredia, Costa Rica. Sitio ligero:
+          sin frameworks, sin cookies y sin rastreadores.
+        </p>
+        <a class="text-link" href="#inicio">
+          Volver arriba
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up" /></svg>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

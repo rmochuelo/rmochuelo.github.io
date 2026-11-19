@@ -1,0 +1,42 @@
+// =============================================================================
+// PORTAFOLIO DE RAMÓN PUENTES (v3) — hoja de estilos principal
+// Este archivo solo ordena los parciales. Se compila a css/styles.css con:
+//   npm run build
+// Orden: de lo general a lo específico (tokens → base → layout → componentes
+// → secciones), para que la cascada sea predecible.
+// =============================================================================
+
+// 1. Abstractos: tokens de diseño (los mixins se cargan desde cada parcial)
+@use 'abstracts/tokens';
+
+// 2. Base: fuentes, reset, tipografía y accesibilidad
+@use 'base/fonts';
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/accessibility';
+
+// 3. Layout: estructura de la página
+@use 'layout/container';
+@use 'layout/header';
+@use 'layout/footer';
+
+// 4. Componentes reutilizables
+@use 'components/button';
+@use 'components/icon';
+@use 'components/tag';
+@use 'components/text-link';
+@use 'components/theme-toggle';
+@use 'components/stats';
+@use 'components/disclosure';
+@use 'components/bridge';
+@use 'components/case';
+@use 'components/diagram';
+@use 'components/quiz';
+@use 'components/timeline';
+
+// 5. Secciones de la página
+@use 'sections/hero';
+@use 'sections/offer';
+@use 'sections/proof';
+@use 'sections/credentials';
+@use 'sections/contact';

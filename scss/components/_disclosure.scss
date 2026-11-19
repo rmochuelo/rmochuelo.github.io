@@ -1,0 +1,68 @@
+// =============================================================================
+// DIVULGACIÓN PROGRESIVA
+// <details>/<summary> nativos: funcionan sin JavaScript y con teclado.
+// Guardan el detalle metodológico para quien lo quiera (control de carga cognitiva).
+// =============================================================================
+
+@use '../abstracts/tokens';
+
+.disclosure {
+  border-top: 1px solid var(--color-border);
+
+  &__summary {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    justify-content: space-between;
+    min-height: 2.75rem;
+    padding-block: var(--space-3);
+    font-family: tokens.$font-display;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    // Signo + / − dibujado con CSS: indica el estado sin depender del color.
+    &::after {
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 1.25rem;
+      line-height: 1.6rem;
+      color: var(--color-accent);
+      text-align: center;
+      content: '+';
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+    }
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &[open] > &__summary::after {
+    content: '−';
+  }
+
+  &__body {
+    display: grid;
+    gap: var(--space-4);
+    padding-bottom: var(--space-5);
+    color: var(--color-text-muted);
+
+    strong {
+      color: var(--color-text);
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding-left: var(--space-5);
+  }
+}

@@ -1,0 +1,43 @@
+// =============================================================================
+// CONTENEDOR Y SECCIONES
+// =============================================================================
+
+@use '../abstracts/mixins';
+
+// Centra el contenido y fija el ancho máximo de lectura.
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-4), 4vw, var(--space-6));
+}
+
+// Bloque vertical estándar de la página.
+.section {
+  padding-block: clamp(var(--space-7), 8vw, var(--space-9));
+
+  // Variante con fondo alterno para dar ritmo entre secciones.
+  &--alt {
+    background-color: var(--color-surface-alt);
+  }
+
+  &__header {
+    max-width: 44rem;
+    margin-bottom: var(--space-7);
+  }
+
+  &__eyebrow {
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__intro {
+    margin-top: var(--space-4);
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+  }
+}
