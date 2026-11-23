@@ -20,4 +20,81 @@
   &__note {
     color: var(--color-text-muted);
   }
+
+  // v3.1 (C-02): dirección visible y copiable, por si el enlace mailto no abre
+  // ningún programa (correo web o equipos corporativos).
+  &__email {
+    display: grid;
+    gap: var(--space-1);
+    color: var(--color-text-muted);
+  }
+
+  &__address {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+}
+
+// Botón de copiar (patrón «copy-button» de Modern Web Guidance).
+.copy {
+  position: relative;
+  display: inline-flex;
+}
+
+.copy-button {
+  display: inline-grid;
+  place-items: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  color: var(--color-accent);
+  cursor: pointer;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  &:hover {
+    border-color: var(--color-accent);
+  }
+
+  // El icono cambia de «copiar» a «hecho»: el estado no depende solo del color.
+  .copy-button__done {
+    display: none;
+  }
+
+  &[data-copied] {
+    .copy-button__icon {
+      display: none;
+    }
+
+    .copy-button__done {
+      display: block;
+    }
+  }
+}
+
+// La burbuja es también la región viva: se oculta con opacity, no con display.
+.copy__tip {
+  position: absolute;
+  inset-block-end: calc(100% + var(--space-2));
+  inset-inline-start: 50%;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-on-accent);
+  white-space: nowrap;
+  pointer-events: none;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity var(--transition-base);
+
+  &:not(:empty) {
+    opacity: 1;
+  }
 }

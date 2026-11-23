@@ -70,10 +70,9 @@
     background-color: var(--color-surface-alt);
     border-radius: var(--radius-md);
 
-    @include mixins.mq('lg') {
-      position: sticky;
-      top: calc(var(--header-height) + var(--space-5));
-    }
+    // v3.1 (C-01): sin position: sticky. La tarjeta del caso incluye los
+    // desplegables, así que una columna fija viajaba con el scroll y tapaba el
+    // texto de «Cómo lo hice» al abrirlo.
   }
 
   &__image {

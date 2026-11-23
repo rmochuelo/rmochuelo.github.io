@@ -12,6 +12,11 @@ HTML semántico, SCSS modular y JavaScript sin dependencias.
   credenciales → acción. Tema oscuro por defecto, divulgación progresiva con `<details>`,
   diagnóstico de 3 preguntas y medidor de peso en vivo. La v2 queda en `portafolio-web` para
   comparar.
+- **Versión 3.1 (2026-11-23):** correcciones de la auditoría heurística (Nielsen + Shneiderman) y
+  de la revisión renderizada: la tabla del caso 2 ya no tapa «Cómo lo hice», CTA con etiqueta
+  honesta («Solicitar»), correo visible con botón de copiar, «Diagnóstico» en el menú, resultado
+  del diagnóstico visible en móvil y «Volver a responder», fuentes enlazadas, línea de tiempo en
+  una columna y líneas de ~70 caracteres. Patrones verificados con Modern Web Guidance (Chrome).
 
 ## Estructura
 

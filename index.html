@@ -113,6 +113,11 @@
       <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" /></symbol>
       <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></symbol>
       <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" /></symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24">
+        <rect x="9" y="9" width="11" height="11" rx="2" />
+        <path d="M5 15V5a2 2 0 0 1 2-2h8" />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10" /></symbol>
       <symbol id="icon-mail" viewBox="0 0 24 24">
         <rect x="3" y="5" width="18" height="14" rx="2" />
         <path d="m3 7 9 6 9-6" />
@@ -142,6 +147,7 @@
           <ul class="site-nav__list" id="menu-principal" role="list">
             <li><a class="site-nav__link" href="#puentes">Puentes</a></li>
             <li><a class="site-nav__link" href="#casos">Casos</a></li>
+            <li><a class="site-nav__link" href="#diagnostico">Diagnóstico</a></li>
             <li><a class="site-nav__link" href="#auditoria">Auditoría</a></li>
             <li><a class="site-nav__link" href="#trayectoria">Trayectoria</a></li>
             <li><a class="site-nav__link" href="#contacto">Contacto</a></li>
@@ -172,13 +178,13 @@
             </p>
             <h1 id="titulo-inicio">La IA no falla en el modelo. Falla en el flujo que la rodea.</h1>
             <p class="hero__lead">
-              Diseño los tres puentes donde un producto digital pierde valor: entre las personas y
-              la IA, entre las personas y lo que necesitan aprender, y entre el producto y los
-              recursos que consume.
+              Ayudo a founders y equipos de producto a diseñar los tres puentes donde un producto
+              digital pierde valor: entre las personas y la IA, entre las personas y lo que
+              necesitan aprender, y entre el producto y los recursos que consume.
             </p>
             <p class="hero__role">AI Workflow · Sustainable UX · Learning Experience Design</p>
             <div class="hero__actions">
-              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="button button--primary" href="#contacto">Solicitar diagnóstico de 30 min</a>
               <a class="text-link" href="#casos">
                 ¿Evalúas talento? Ve los casos y la trayectoria
                 <svg class="icon" aria-hidden="true"><use href="#icon-arrow-down" /></svg>
@@ -279,8 +285,11 @@
                   resultados (EBIT) de su organización.
                 </p>
                 <figcaption class="bridge__source">
-                  McKinsey &amp; Company, <cite lang="en">The state of AI in 2026</cite>, agosto de
-                  2026.
+                  McKinsey &amp; Company,
+                  <a
+                    href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"
+                    ><cite lang="en">The state of AI in 2026</cite></a
+                  >, agosto de 2026, pp. 3 y 11.
                 </figcaption>
               </figure>
               <p class="bridge__action">
@@ -305,7 +314,10 @@
                   Con IA, las notas de tareas subieron 18% y las de exámenes bajaron 20%.
                 </p>
                 <figcaption class="bridge__source">
-                  Banco Mundial, <cite lang="en">World Development Report 2026</cite>.
+                  Banco Mundial,
+                  <a href="https://www.worldbank.org/en/publication/wdr2026"
+                    ><cite lang="en">World Development Report 2026</cite></a
+                  >, p. 194.
                 </figcaption>
               </figure>
               <p class="bridge__action">
@@ -330,7 +342,10 @@
                   de CO2e por consulta de IA, según el modelo que se elija.
                 </p>
                 <figcaption class="bridge__source">
-                  Stanford HAI, <cite lang="en">AI Index Report 2026</cite>, p. 38.
+                  Stanford HAI,
+                  <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report"
+                    ><cite lang="en">AI Index Report 2026</cite></a
+                  >, p. 38.
                 </figcaption>
               </figure>
               <p class="bridge__action">
@@ -627,7 +642,7 @@
                 <ul class="tag-list" role="list" aria-label="Métricas del caso">
                   <li class="tag">4 cohortes de 402 h</li>
                   <li class="tag">100% remoto</li>
-                  <li class="tag">Gino's: 6 de 7 completaron la compra</li>
+                  <li class="tag">Prueba de usabilidad: 6 de 7 completaron la compra</li>
                   <li class="tag">Fundación Mujer: 2 cohortes, 60 personas</li>
                 </ul>
               </div>
@@ -969,8 +984,9 @@
               paso se abandona.
             </p>
             <div class="quiz__actions">
-              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="button button--primary" href="#contacto">Solicitar diagnóstico de 30 min</a>
               <a class="text-link" href="#auditoria">Ver cómo funciona la auditoría</a>
+              <button class="text-link quiz__reset" type="reset">Volver a responder</button>
             </div>
           </template>
           <template data-outcome="aprendizaje">
@@ -982,8 +998,9 @@
               usuario haciendo.
             </p>
             <div class="quiz__actions">
-              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="button button--primary" href="#contacto">Solicitar diagnóstico de 30 min</a>
               <a class="text-link" href="#auditoria">Ver cómo funciona la auditoría</a>
+              <button class="text-link quiz__reset" type="reset">Volver a responder</button>
             </div>
           </template>
           <template data-outcome="planeta">
@@ -995,8 +1012,9 @@
               tarea usa el modelo que necesita.
             </p>
             <div class="quiz__actions">
-              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="button button--primary" href="#contacto">Solicitar diagnóstico de 30 min</a>
               <a class="text-link" href="#auditoria">Ver cómo funciona la auditoría</a>
+              <button class="text-link quiz__reset" type="reset">Volver a responder</button>
             </div>
           </template>
           <template data-outcome="none">
@@ -1005,7 +1023,8 @@
               Si quieres una segunda opinión sobre un flujo concreto, conversemos.
             </p>
             <div class="quiz__actions">
-              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="button button--primary" href="#contacto">Solicitar diagnóstico de 30 min</a>
+              <button class="text-link quiz__reset" type="reset">Volver a responder</button>
             </div>
           </template>
         </div>
@@ -1086,7 +1105,7 @@
                 Es un servicio nuevo: empaqueta el método que usé en los tres casos de esta página.
                 El alcance y la inversión se definen en el diagnóstico inicial.
               </p>
-              <a class="button button--primary" href="#contacto">Agendar diagnóstico de 30 min</a>
+              <a class="button button--primary" href="#contacto">Solicitar diagnóstico de 30 min</a>
             </div>
           </div>
         </div>
@@ -1183,6 +1202,15 @@
                 <p class="timeline__org">ADALID · Chile, remoto</p>
               </li>
               <li class="timeline__item">
+                <p class="timeline__period"><time datetime="2021">2021</time> – presente</p>
+                <h3 class="timeline__role">Product Designer y facilitador</h3>
+                <p class="timeline__org">Fundación Mujer · Costa Rica</p>
+                <p class="timeline__description">
+                  Cursos de marca, redes sociales, branding con IA y alfabetización digital para
+                  personas emprendedoras, refugiadas y solicitantes de refugio.
+                </p>
+              </li>
+              <li class="timeline__item">
                 <p class="timeline__period"><time datetime="2018">2018</time> – presente</p>
                 <h3 class="timeline__role">Product &amp; UX Strategy Consultant</h3>
                 <p class="timeline__org">Dolce Amaretto Sustainable Boutique Bakery · Costa Rica</p>
@@ -1201,14 +1229,8 @@
             </ol>
 
             <details class="disclosure">
-              <summary class="disclosure__summary">Trayectoria completa</summary>
+              <summary class="disclosure__summary">Detalle de agencias y marcas</summary>
               <div class="disclosure__body">
-                <p>
-                  <strong>2021 – presente · Product Designer y facilitador.</strong> Fundación
-                  Mujer, Costa Rica. Cursos de marca, redes sociales, branding con IA y
-                  alfabetización digital para personas emprendedoras, refugiadas y solicitantes de
-                  refugio.
-                </p>
                 <p>
                   <strong>2000 – 2017 · Agencias y marcas.</strong> Dirección de arte y campañas de
                   marca en ARS DDB y Creatividad &amp; Media (Caracas); gestión de color, control de
@@ -1373,8 +1395,32 @@
             href="mailto:ramonpuentes@gmail.com?subject=Diagn%C3%B3stico%20de%2030%20min%20%C2%B7%20AI%20Workflow%20%26%20Sustainable%20UX&amp;body=Hola%2C%20Ram%C3%B3n%3A%0D%0A%0D%0AProducto%20o%20empresa%3A%0D%0AFlujo%20que%20me%20preocupa%3A%0D%0ADos%20horarios%20posibles%20%28con%20zona%20horaria%29%3A%0D%0A"
           >
             <svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg>
-            Agendar diagnóstico de 30 min
+            Abrir mi correo con el mensaje listo
           </a>
+
+          <div class="contact__email">
+            <p>¿No se abre tu correo? Escríbeme a:</p>
+            <p class="contact__address">
+              <span id="correo-contacto">ramonpuentes@gmail.com</span>
+              <span class="copy">
+                <button
+                  class="copy-button"
+                  type="button"
+                  command="--copy"
+                  commandfor="correo-contacto"
+                  aria-label="Copiar la dirección de correo"
+                >
+                  <svg class="icon copy-button__icon" aria-hidden="true">
+                    <use href="#icon-copy" />
+                  </svg>
+                  <svg class="icon copy-button__done" aria-hidden="true">
+                    <use href="#icon-check" />
+                  </svg>
+                </button>
+                <span class="copy__tip" role="status"></span>
+              </span>
+            </p>
+          </div>
 
           <p class="contact__note">
             ¿Evalúas talento para un rol remoto de producto o UX? Escríbeme o revisa mi perfil en
@@ -1417,8 +1463,8 @@
     <footer class="site-footer">
       <div class="container site-footer__inner">
         <p class="site-footer__note">
-          © <span data-current-year>2026</span> Ramón Puentes · Heredia, Costa Rica. Sitio ligero:
-          sin frameworks, sin cookies y sin rastreadores.
+          © <span data-current-year>2026</span> Ramón Puentes · Heredia, Costa Rica. Actualizado:
+          noviembre de 2026. Sitio ligero: sin frameworks, sin cookies y sin rastreadores.
         </p>
         <a class="text-link" href="#inicio">
           Volver arriba

@@ -1,7 +1,8 @@
 // =============================================================================
 // LÍNEA DE TIEMPO DE EXPERIENCIA
-// Móvil: línea a la izquierda. Escritorio: línea central con entradas alternas
-// (misma idea del diseño original de 2023, ahora con una lista ordenada <ol>).
+// Una sola columna con la línea a la izquierda en todos los tamaños.
+// v3.1 (C-08): se retiró la versión alterna de escritorio (línea central y
+// entradas a ambos lados): obligaba a leer en zigzag para comparar fechas.
 // =============================================================================
 
 @use '../abstracts/tokens';
@@ -25,10 +26,6 @@ $dot-size: 0.875rem;
     width: 2px;
     content: '';
     background-color: var(--color-border);
-
-    @include mixins.mq('lg') {
-      left: calc(50% - 1px);
-    }
   }
 
   &__item {
@@ -47,31 +44,6 @@ $dot-size: 0.875rem;
       border: 2px solid var(--color-bg);
       border-radius: 50%;
     }
-
-    @include mixins.mq('lg') {
-      width: 50%;
-      padding-right: var(--space-7);
-      padding-left: 0;
-      text-align: right;
-
-      &::before {
-        right: calc($dot-size / -2);
-        left: auto;
-      }
-
-      // Entradas pares: a la derecha de la línea.
-      &:nth-child(even) {
-        margin-left: 50%;
-        padding-right: 0;
-        padding-left: var(--space-7);
-        text-align: left;
-
-        &::before {
-          right: auto;
-          left: calc($dot-size / -2);
-        }
-      }
-    }
   }
 
   &__period {
@@ -89,6 +61,7 @@ $dot-size: 0.875rem;
   }
 
   &__description {
+    max-inline-size: 70ch;
     margin-top: var(--space-2);
     color: var(--color-text-muted);
   }

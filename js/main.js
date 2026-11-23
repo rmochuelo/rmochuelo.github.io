@@ -172,6 +172,11 @@ function initQuiz() {
 
     result.replaceChildren(template.content.cloneNode(true));
 
+    // v3.1 (C-05): en móvil el botón del resultado quedaba fuera de la pantalla.
+    // Se lleva el resultado a la vista; el foco sigue en el botón de enviar, así que
+    // el siguiente Tab entra al resultado y la región aria-live lo anuncia.
+    result.scrollIntoView({ block: 'start' });
+
     // Empate: se muestra el primero en el orden de la página y se nombra el otro.
     if (maxScore > 0 && weakest.length > 1) {
       const also = document.createElement('p');
@@ -181,6 +186,14 @@ function initQuiz() {
         .join(' y ')}.`;
       result.querySelector('[data-outcome-body]')?.after(also);
     }
+  });
+
+  // v3.1 (C-05): «Volver a responder» (botón type="reset" dentro del resultado).
+  form.addEventListener('reset', () => {
+    result.replaceChildren();
+    error.hidden = true;
+    questions[0].scrollIntoView({ block: 'start' });
+    questions[0].querySelector('input')?.focus({ preventScroll: true });
   });
 }
 
@@ -227,6 +240,93 @@ function initPageWeight() {
 }
 
 /* ---------------------------------------------------------------------------
+   Copiar el correo (v3.1, C-02)
+   Patrón «copy-button» de Modern Web Guidance: Invoker Commands (command y
+   commandfor) con respaldo por clic, Async Clipboard y una burbuja que es a la
+   vez el aviso visible y la región viva para lectores de pantalla.
+   --------------------------------------------------------------------------- */
+
+const copyTimers = new WeakMap();
+let lastCopyMessage = '';
+
+/** Muestra «Copiado» o «No se pudo copiar» en la burbuja junto al botón. */
+function reportCopy(button, ok) {
+  const tip = button.nextElementSibling;
+  let message = ok ? 'Copiado' : 'No se pudo copiar';
+
+  // VoiceOver no repite un aviso idéntico: un espacio duro lo hace distinto.
+  if (message === lastCopyMessage) {
+    message += '\u00A0';
+  }
+  lastCopyMessage = message;
+
+  clearTimeout(copyTimers.get(button));
+  button.removeAttribute('data-copied');
+  tip.textContent = '';
+
+  if (ok) {
+    button.setAttribute('data-copied', '');
+  }
+  requestAnimationFrame(() => {
+    tip.textContent = message;
+  });
+
+  copyTimers.set(
+    button,
+    setTimeout(() => {
+      button.removeAttribute('data-copied');
+      tip.textContent = '';
+    }, 2000),
+  );
+}
+
+/** Copia el texto del elemento indicado en commandfor. */
+async function copyText(button, target) {
+  const text = target.innerText.trim();
+
+  if (!text) {
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(text);
+    reportCopy(button, true);
+  } catch {
+    reportCopy(button, false);
+  }
+}
+
+function initCopyButtons() {
+  if ('CommandEvent' in window) {
+    // Los eventos «command» no burbujean: se escuchan en la fase de captura.
+    document.addEventListener(
+      'command',
+      (event) => {
+        if (event.command === '--copy') {
+          copyText(event.source, event.target);
+        }
+      },
+      true,
+    );
+    return;
+  }
+
+  // Respaldo para navegadores sin Invoker Commands: mismo marcado, un solo camino.
+  document.addEventListener('click', (event) => {
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    const button = event.target.closest('button[command="--copy"]');
+    const target = button && document.getElementById(button.getAttribute('commandfor'));
+
+    if (target) {
+      copyText(button, target);
+    }
+  });
+}
+
+/* ---------------------------------------------------------------------------
    Año del pie de página
    --------------------------------------------------------------------------- */
 
@@ -246,5 +346,6 @@ initThemeToggle();
 initMobileNav();
 initScrollSpy();
 initQuiz();
+initCopyButtons();
 initPageWeight();
 initCurrentYear();

@@ -49,6 +49,8 @@
   }
 
   &__body {
+    // v3.1 (C-09): líneas de ~70 caracteres; a lo ancho de la tarjeta pasaban de 110.
+    max-inline-size: 70ch;
     display: grid;
     gap: var(--space-4);
     padding-bottom: var(--space-5);
