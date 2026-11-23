@@ -12,6 +12,13 @@ HTML semántico, SCSS modular y JavaScript sin dependencias.
   credenciales → acción. Tema oscuro por defecto, divulgación progresiva con `<details>`,
   diagnóstico de 3 preguntas y medidor de peso en vivo. La v2 queda en `portafolio-web` para
   comparar.
+- **Versión 3.2 (2026-11-23):** correcciones de los tres auditores (Claude, Gemini y la prueba
+  de Ramón en su teléfono) y de Lighthouse: casos HOPE, ADALID y Dolce Amaretto actualizados
+  (reto de 3 semanas, equipo en tripla, rol de Awaker, etiqueta con CO2e por lote), Kanban
+  ilustrativo con contenido, «Menú» visible, flecha unida al texto, cifras enlazadas a su
+  evidencia, siguiente paso tras los casos, progreso del diagnóstico y opción «todavía no usamos
+  IA», servicio titulado en español, etiquetas sin aspecto de botón, línea de tiempo con los roles
+  vigentes primero, accesos rápidos en el pie, encabezado mobile first y tema inicial en línea.
 - **Versión 3.1 (2026-11-23):** correcciones de la auditoría heurística (Nielsen + Shneiderman) y
   de la revisión renderizada: la tabla del caso 2 ya no tapa «Cómo lo hice», CTA con etiqueta
   honesta («Solicitar»), correo visible con botón de copiar, «Diagnóstico» en el menú, resultado
@@ -33,7 +40,6 @@ HTML semántico, SCSS modular y JavaScript sin dependencias.
 │   ├── components/       Piezas reutilizables: botón, etiqueta, tarjeta, línea de tiempo...
 │   └── sections/         Estilos propios de cada sección de la página
 ├── js/
-│   ├── theme-init.js     Aplica el tema guardado antes del primer pintado
 │   └── main.js           Tema, menú, sección activa, diagnóstico, medidor de peso y año
 ├── fonts/                Inter y Space Grotesk (variables, subconjunto latino)
 ├── img/                  Imágenes optimizadas (WebP) y favicon
@@ -81,9 +87,10 @@ formatea al guardar (`.vscode/settings.json`).
   peso, menos mantenimiento y menos energía.
 - **Fuentes autoalojadas y variables.** Un archivo por familia cubre todos los pesos y no se
   hacen peticiones a terceros (más privacidad, menos latencia).
-- **Tema claro y oscuro.** Sigue la preferencia del sistema; el botón permite cambiarla y la
-  elección se guarda en `localStorage`. `theme-init.js` se carga sin `defer` a propósito, para
-  aplicar el tema antes del primer pintado y evitar el parpadeo.
+- **Tema claro y oscuro.** Oscuro por defecto; el botón permite cambiarlo y la elección se
+  guarda en `localStorage`. Un script corto en línea dentro del `<head>` aplica el tema antes del
+  primer pintado y evita el parpadeo (desde la v3.2 va en línea: como archivo aparte bloqueaba el
+  renderizado con una petición más).
 - **Mejora progresiva.** Sin JavaScript el menú se muestra completo y el botón de tema se oculta.
   La clase `js` en `<html>` activa el menú plegable.
 - **`role="list"` en listas sin viñetas.** Safari con VoiceOver deja de anunciar como lista un

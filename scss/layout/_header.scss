@@ -86,47 +86,86 @@
   }
 }
 
-// -- Menú móvil ---------------------------------------------------------------
+// -- Menú (mobile first) -------------------------------------------------------
+// v3.2 (C-30): antes era la única media query escrita «hacia abajo» (width < 48rem).
+// Ahora la base es el teléfono y desde lg (64rem) se despliega la lista en línea:
+// con seis enlaces, a 768 px el menú se partía en dos filas (regresión de la v3.1).
 // Sin JavaScript, la lista se muestra completa (mejora progresiva).
-// Con JavaScript, bajo 48rem se pliega tras el botón hamburguesa.
-@media (width < 48rem) {
-  .site-header__inner {
-    flex-wrap: wrap;
-  }
+.site-header__inner {
+  flex-wrap: wrap;
 
+  @include mixins.mq('lg') {
+    flex-wrap: nowrap;
+  }
+}
+
+.site-nav {
+  order: 3;
+  width: 100%;
+
+  @include mixins.mq('lg') {
+    order: 0;
+    width: auto;
+  }
+}
+
+.js {
   .site-nav {
-    order: 3;
-    width: 100%;
-  }
+    order: 0;
+    width: auto;
 
-  .js {
-    .site-nav {
-      order: 0;
+    // v3.2 (C-19): el icono lleva la palabra «Menú» visible.
+    &__toggle {
+      display: inline-flex;
+      gap: var(--space-2);
+      align-items: center;
       width: auto;
+      padding-inline: var(--space-3);
+      font: inherit;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
 
+    &__list {
+      position: absolute;
+      inset-inline: 0;
+      top: 100%;
+      display: none;
+      flex-direction: column;
+      padding: var(--space-3) var(--space-4) var(--space-4);
+      background-color: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+    }
+
+    &__link {
+      padding: var(--space-3);
+      font-size: var(--font-size-base);
+    }
+
+    &--open .site-nav__list {
+      display: flex;
+    }
+
+    @include mixins.mq('lg') {
       &__toggle {
-        display: grid;
+        display: none;
       }
 
       &__list {
-        position: absolute;
-        inset-inline: 0;
-        top: 100%;
-        display: none;
-        flex-direction: column;
-        padding: var(--space-3) var(--space-4) var(--space-4);
-        background-color: var(--color-surface);
-        border-bottom: 1px solid var(--color-border);
-        box-shadow: var(--shadow-card);
+        position: static;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        background-color: transparent;
+        border-bottom: 0;
+        box-shadow: none;
       }
 
       &__link {
-        padding: var(--space-3);
-        font-size: var(--font-size-base);
-      }
-
-      &--open .site-nav__list {
-        display: flex;
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--font-size-sm);
       }
     }
   }

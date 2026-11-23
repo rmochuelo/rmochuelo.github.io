@@ -30,6 +30,22 @@
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+
+    // v3.2: en móvil, rol y ubicación en dos líneas completas (antes eran tres
+    // líneas cortadas). Desde md vuelven a una línea con separador.
+    span {
+      display: block;
+    }
+
+    @include mixins.mq('md') {
+      span {
+        display: inline;
+      }
+
+      span + span::before {
+        content: ' · ';
+      }
+    }
   }
 
   &__lead {

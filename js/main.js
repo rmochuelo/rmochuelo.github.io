@@ -27,7 +27,11 @@ function initThemeToggle() {
   }
 
   const syncToggleState = () => {
-    toggle.setAttribute('aria-pressed', String(getActiveTheme() === 'dark'));
+    const isDark = getActiveTheme() === 'dark';
+
+    toggle.setAttribute('aria-pressed', String(isDark));
+    // v3.2 (C-20): al pasar el cursor se lee qué hará el botón.
+    toggle.title = isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
   };
 
   toggle.addEventListener('click', () => {
@@ -139,6 +143,20 @@ function initQuiz() {
   const result = form.querySelector('[data-quiz-result]');
   const error = form.querySelector('[data-quiz-error]');
   const questions = [...form.querySelectorAll('fieldset[data-bridge]')];
+  const progress = form.querySelector('[data-quiz-progress]');
+
+  // v3.2 (C-24): progreso visible («1 de 3 respondidas»). El botón nunca se
+  // desactiva: si falta una respuesta, la validación lo explica y lleva el foco.
+  const updateProgress = () => {
+    const answered = questions.filter((fieldset) => fieldset.querySelector('input:checked'));
+
+    progress.textContent = `${answered.length} de ${questions.length} respondidas`;
+  };
+
+  if (progress) {
+    progress.hidden = false;
+    form.addEventListener('change', updateProgress);
+  }
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -150,6 +168,8 @@ function initQuiz() {
         bridge: fieldset.dataset.bridge,
         name: fieldset.dataset.bridgeName,
         score: checked ? Number(checked.value) : null,
+        // v3.2 (C-24): una respuesta puede pedir su propia variante de resultado.
+        outcome: checked?.dataset.outcome ?? fieldset.dataset.bridge,
       };
     });
 
@@ -167,7 +187,7 @@ function initQuiz() {
 
     const maxScore = Math.max(...scores.map((item) => item.score));
     const weakest = scores.filter((item) => item.score === maxScore);
-    const outcomeKey = maxScore === 0 ? 'none' : weakest[0].bridge;
+    const outcomeKey = maxScore === 0 ? 'none' : weakest[0].outcome;
     const template = document.querySelector(`template[data-outcome="${outcomeKey}"]`);
 
     result.replaceChildren(template.content.cloneNode(true));
@@ -192,6 +212,10 @@ function initQuiz() {
   form.addEventListener('reset', () => {
     result.replaceChildren();
     error.hidden = true;
+    // El reset limpia los radios después de este evento: se espera un ciclo.
+    if (progress) {
+      setTimeout(updateProgress);
+    }
     questions[0].scrollIntoView({ block: 'start' });
     questions[0].querySelector('input')?.focus({ preventScroll: true });
   });

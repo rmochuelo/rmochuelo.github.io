@@ -10,6 +10,17 @@
 .case-list {
   display: grid;
   gap: var(--space-6);
+
+  // v3.2 (C-23): siguiente paso al terminar de leer los casos.
+  &__next {
+    max-inline-size: 70ch;
+    margin-block-start: var(--space-6);
+    font-size: var(--font-size-lg);
+
+    a {
+      font-weight: 600;
+    }
+  }
 }
 
 .case {

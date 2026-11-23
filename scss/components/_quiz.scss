@@ -79,6 +79,12 @@
     cursor: pointer;
   }
 
+  // v3.2 (C-24): cuántas preguntas faltan, sin desactivar el botón.
+  &__progress {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
   &__error {
     font-weight: 600;
     color: var(--color-highlight);

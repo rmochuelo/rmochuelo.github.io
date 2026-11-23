@@ -52,6 +52,18 @@
     fill: var(--color-text);
   }
 
+  // v3.2 (C-13): tarjetas del Kanban con texto, para que el tablero no se vea vacío.
+  &__card {
+    fill: var(--color-surface-alt);
+    stroke: var(--color-border);
+    stroke-width: 1;
+  }
+
+  &__label--small {
+    font-size: 12px;
+    fill: var(--color-text);
+  }
+
   &__label--on-accent {
     fill: var(--color-on-accent);
   }

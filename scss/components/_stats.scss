@@ -29,6 +29,18 @@
     justify-content: flex-end;
   }
 
+  // v3.2 (C-22): cada cifra lleva a su evidencia.
+  &__link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15em;
+
+    &:hover {
+      text-decoration-color: var(--color-highlight);
+    }
+  }
+
   &__value {
     font-family: tokens.$font-display;
     font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);

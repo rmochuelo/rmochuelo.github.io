@@ -3,8 +3,18 @@
 // =============================================================================
 
 .text-link {
-  display: inline-flex;
-  gap: var(--space-1);
-  align-items: center;
   font-weight: 600;
+
+  // v3.2 (C-21): en línea, no flex. Con inline-flex el texto y el icono eran dos
+  // cajas: al partirse el texto, la flecha quedaba sola en el margen derecho.
+  // Última palabra + icono en una caja flexible: no se separan al cambiar de
+  // línea y el subrayado no se extiende bajo el espacio previo al icono.
+  &__end {
+    display: inline-flex;
+    gap: 0.25em;
+    align-items: center;
+
+    // Una caja inline-flex no hereda el subrayado del enlace: se repite aquí.
+    text-decoration: inherit;
+  }
 }
