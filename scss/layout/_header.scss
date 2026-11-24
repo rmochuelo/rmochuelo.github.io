@@ -15,12 +15,18 @@
   // Línea naranja: guiño al <hr> naranja del diseño original de 2023.
   border-top: 3px solid var(--color-highlight);
 
+  // v3.4: con el botón de idioma, a 375 px no cabían marca, menú y dos botones en
+  // una fila (a 320 px ya pasaba desde la v3.2). Base compacta y se amplía desde sm.
   &__inner {
     position: relative;
     display: flex;
-    gap: var(--space-4);
+    gap: var(--space-2);
     align-items: center;
     min-height: var(--header-height);
+
+    @include mixins.mq('sm') {
+      gap: var(--space-4);
+    }
   }
 
   &__brand {
@@ -29,7 +35,7 @@
     align-items: center;
     margin-right: auto;
     font-family: tokens.$font-display;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-text);
     text-decoration: none;
@@ -37,9 +43,20 @@
 
   // Isotipo SVG en línea: toma el color de acento de cada tema.
   &__logo {
+    display: none;
     width: 1.75rem;
     height: 1.75rem;
     color: var(--color-accent);
+
+    @include mixins.mq('xs') {
+      display: block;
+    }
+  }
+
+  @include mixins.mq('sm') {
+    &__brand {
+      font-size: 1.125rem;
+    }
   }
 }
 
@@ -125,6 +142,18 @@
       font-size: var(--font-size-sm);
       font-weight: 600;
       color: var(--color-text);
+
+      // En teléfonos queda la palabra «Menú» (C-19) y se oculta el icono para
+      // que quepan los botones de tema e idioma.
+      .icon {
+        display: none;
+      }
+
+      @include mixins.mq('sm') {
+        .icon {
+          display: block;
+        }
+      }
     }
 
     &__list {

@@ -12,6 +12,12 @@ HTML semántico, SCSS modular y JavaScript sin dependencias.
   credenciales → acción. Tema oscuro por defecto, divulgación progresiva con `<details>`,
   diagnóstico de 3 preguntas y medidor de peso en vivo. La v2 queda en `portafolio-web` para
   comparar.
+- **Versión 3.4 (2026-11-24):** versión en inglés en `/en/` con un botón de idioma junto al de
+  tema (enlace con `hreflang`, funciona sin JavaScript y conserva la sección que se está
+  leyendo). Las dos versiones comparten CSS, JS e id de sección; los mensajes que escribe el
+  script viven en `UI_TEXT` de `js/main.js`. Encabezado compacto en teléfonos (desde 320 px, todo
+  en una fila) y `robots.txt` + `sitemap.xml` con las dos versiones.
+- **Versión 3.3 (2026-11-23):** títulos en Inter; se retira Space Grotesk (una descarga menos).
 - **Versión 3.2 (2026-11-23):** correcciones de los tres auditores (Claude, Gemini y la prueba
   de Ramón en su teléfono) y de Lighthouse: casos HOPE, ADALID y Dolce Amaretto actualizados
   (reto de 3 semanas, equipo en tripla, rol de Awaker, etiqueta con CO2e por lote), Kanban
@@ -29,7 +35,9 @@ HTML semántico, SCSS modular y JavaScript sin dependencias.
 
 ```text
 .
-├── index.html            Página única (contenido y estructura)
+├── index.html            Página única en español (contenido y estructura)
+├── en/index.html         La misma página en inglés (rutas con ../)
+├── robots.txt, sitemap.xml
 ├── css/
 │   └── styles.css        CSS compilado. No se edita a mano: sale de scss/
 ├── scss/                 Código fuente de los estilos

@@ -3,16 +3,24 @@
 // Muestra el sol o la luna según el tema activo (aria-pressed lo controla el JS).
 // =============================================================================
 
+@use '../abstracts/mixins';
+
 .theme-toggle {
   display: grid;
   place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
   cursor: pointer;
   background: none;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   transition: background-color var(--transition-base);
+
+  // 40 px solo por debajo de 360 px (sigue sobre el mínimo de 24 px de WCAG 2.2).
+  @include mixins.mq('xs') {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
 
   &:hover {
     background-color: var(--color-surface-alt);

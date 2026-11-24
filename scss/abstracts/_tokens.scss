@@ -35,6 +35,8 @@ $font-body: 'Inter Variable', 'Segoe UI', system-ui, sans-serif;
 
 // -- Puntos de quiebre (mobile-first) -----------------------------------------
 $breakpoints: (
+  // v3.4: teléfonos de 360 px o más (el encabezado recupera el isotipo).
+  'xs': 22.5rem,
   'sm': 36rem,
   'md': 48rem,
   'lg': 64rem,

@@ -10,6 +10,39 @@ const THEME_STORAGE_KEY = 'theme';
 const NAV_OPEN_CLASS = 'site-nav--open';
 
 /* ---------------------------------------------------------------------------
+   Textos que escribe el script (v3.4, B1): uno por idioma de la página.
+   El HTML de cada versión ya viene traducido; aquí solo viven los mensajes
+   que el JavaScript genera en el momento.
+   --------------------------------------------------------------------------- */
+
+const UI_TEXT = {
+  es: {
+    themeToLight: 'Cambiar a tema claro',
+    themeToDark: 'Cambiar a tema oscuro',
+    progress: (done, total) => `${done} de ${total} respondidas`,
+    alsoReview: (names) => `También conviene revisar: ${names.join(' y ')}.`,
+    weightCached:
+      'pesa esta página. En esta visita tu navegador la cargó desde su caché: casi 0 kB de red.',
+    weightLive: 'transfirió esta página en tu visita, medido por tu navegador.',
+    copied: 'Copiado',
+    copyFailed: 'No se pudo copiar',
+  },
+  en: {
+    themeToLight: 'Switch to light theme',
+    themeToDark: 'Switch to dark theme',
+    progress: (done, total) => `${done} of ${total} answered`,
+    alsoReview: (names) => `Also worth reviewing: ${names.join(' and ')}.`,
+    weightCached:
+      'is what this page weighs. On this visit your browser loaded it from its cache: almost 0 kB over the network.',
+    weightLive: 'is what this page transferred on your visit, measured by your browser.',
+    copied: 'Copied',
+    copyFailed: 'Could not copy',
+  },
+};
+
+const text = UI_TEXT[document.documentElement.lang] ?? UI_TEXT.es;
+
+/* ---------------------------------------------------------------------------
    Tema claro / oscuro (oscuro por defecto)
    --------------------------------------------------------------------------- */
 
@@ -31,7 +64,7 @@ function initThemeToggle() {
 
     toggle.setAttribute('aria-pressed', String(isDark));
     // v3.2 (C-20): al pasar el cursor se lee qué hará el botón.
-    toggle.title = isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
+    toggle.title = isDark ? text.themeToLight : text.themeToDark;
   };
 
   toggle.addEventListener('click', () => {
@@ -150,7 +183,7 @@ function initQuiz() {
   const updateProgress = () => {
     const answered = questions.filter((fieldset) => fieldset.querySelector('input:checked'));
 
-    progress.textContent = `${answered.length} de ${questions.length} respondidas`;
+    progress.textContent = text.progress(answered.length, questions.length);
   };
 
   if (progress) {
@@ -200,10 +233,7 @@ function initQuiz() {
     // Empate: se muestra el primero en el orden de la página y se nombra el otro.
     if (maxScore > 0 && weakest.length > 1) {
       const also = document.createElement('p');
-      also.textContent = `También conviene revisar: ${weakest
-        .slice(1)
-        .map((item) => item.name)
-        .join(' y ')}.`;
+      also.textContent = text.alsoReview(weakest.slice(1).map((item) => item.name));
       result.querySelector('[data-outcome-body]')?.after(also);
     }
   });
@@ -249,9 +279,7 @@ function initPageWeight() {
 
     if (bytes > 0) {
       output.textContent = `${Math.round(bytes / 1024)} kB`;
-      note.textContent = fromCache
-        ? 'pesa esta página. En esta visita tu navegador la cargó desde su caché: casi 0 kB de red.'
-        : 'transfirió esta página en tu visita, medido por tu navegador.';
+      note.textContent = fromCache ? text.weightCached : text.weightLive;
     }
   };
 
@@ -276,7 +304,7 @@ let lastCopyMessage = '';
 /** Muestra «Copiado» o «No se pudo copiar» en la burbuja junto al botón. */
 function reportCopy(button, ok) {
   const tip = button.nextElementSibling;
-  let message = ok ? 'Copiado' : 'No se pudo copiar';
+  let message = ok ? text.copied : text.copyFailed;
 
   // VoiceOver no repite un aviso idéntico: un espacio duro lo hace distinto.
   if (message === lastCopyMessage) {
@@ -351,6 +379,30 @@ function initCopyButtons() {
 }
 
 /* ---------------------------------------------------------------------------
+   Cambio de idioma (v3.4, B1)
+   El enlace funciona solo; el script le suma la sección que se está leyendo,
+   para que el cambio de idioma no devuelva a la persona al inicio. Las dos
+   versiones comparten los mismos id de sección.
+   --------------------------------------------------------------------------- */
+
+function initLangToggle() {
+  const link = document.querySelector('[data-lang-toggle]');
+
+  if (!link) {
+    return;
+  }
+
+  link.addEventListener('click', () => {
+    const current = document.querySelector('.site-nav__link[aria-current="true"]');
+    const hash = current?.hash || window.location.hash || '';
+    const url = new URL(link.href);
+
+    url.hash = hash;
+    link.href = url.href;
+  });
+}
+
+/* ---------------------------------------------------------------------------
    Año del pie de página
    --------------------------------------------------------------------------- */
 
@@ -371,5 +423,6 @@ initMobileNav();
 initScrollSpy();
 initQuiz();
 initCopyButtons();
+initLangToggle();
 initPageWeight();
 initCurrentYear();
