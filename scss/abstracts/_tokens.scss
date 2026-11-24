@@ -28,7 +28,9 @@ $teal-700: #17675b;
 $rust-600: #b3401f;
 
 // -- Tipografía ---------------------------------------------------------------
-$font-display: 'Space Grotesk Variable', 'Segoe UI', system-ui, sans-serif;
+// Títulos y texto comparten familia (v3.3); se conserva el token para poder
+// cambiar la voz de los títulos sin tocar los componentes.
+$font-display: 'Inter Variable', 'Segoe UI', system-ui, sans-serif;
 $font-body: 'Inter Variable', 'Segoe UI', system-ui, sans-serif;
 
 // -- Puntos de quiebre (mobile-first) -----------------------------------------

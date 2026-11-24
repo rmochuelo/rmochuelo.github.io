@@ -1,6 +1,6 @@
 {
   "name": "portafolio-ramon-puentes",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "Portafolio de Ramón Puentes, Lead Product UX Designer. HTML semántico, SCSS modular y JavaScript sin dependencias.",
   "private": true,
   "scripts": {

@@ -41,7 +41,7 @@ HTML semántico, SCSS modular y JavaScript sin dependencias.
 │   └── sections/         Estilos propios de cada sección de la página
 ├── js/
 │   └── main.js           Tema, menú, sección activa, diagnóstico, medidor de peso y año
-├── fonts/                Inter y Space Grotesk (variables, subconjunto latino)
+├── fonts/                Inter (variable, subconjunto latino) para títulos y texto
 ├── img/                  Imágenes optimizadas (WebP) y favicon
 └── (configuración)       .editorconfig, .prettierrc.json, .htmlhintrc, .stylelintrc.json,
                           eslint.config.mjs, .vscode/
@@ -153,4 +153,4 @@ Al migrar desde la versión de 2023, elimina del repositorio lo que ya no se usa
 ## Licencias
 
 - Código y contenido: © Ramón Puentes.
-- Fuentes Inter y Space Grotesk: SIL Open Font License 1.1 (`fonts/LICENSE.txt`).
+- Fuente Inter: SIL Open Font License 1.1 (`fonts/LICENSE.txt`).

@@ -21,17 +21,20 @@ h3 {
   font-family: tokens.$font-display;
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
+// Inter en tamaños grandes necesita un interletrado más cerrado para no verse suelto.
 h1 {
   font-size: var(--font-size-h1);
   line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
 h2 {
   font-size: var(--font-size-h2);
+  letter-spacing: -0.02em;
 }
 
 h3 {

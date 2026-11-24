@@ -1,6 +1,8 @@
 // =============================================================================
 // FUENTES AUTOALOJADAS
-// Variables (un archivo cubre todos los pesos) y solo el subconjunto latino.
+// Una sola familia variable (Inter) para títulos y texto: un archivo cubre todos
+// los pesos y solo el subconjunto latino. Desde la v3.3 se retiró Space Grotesk:
+// una petición y 22 kB menos.
 // Autoalojarlas evita peticiones a terceros: más privacidad y menos carga.
 // Licencia: SIL Open Font License 1.1 (ver fonts/LICENSE.txt).
 // =============================================================================
@@ -11,12 +13,4 @@
   font-weight: 100 900;
   font-display: swap;
   src: url('../fonts/inter-latin-wght-normal.woff2') format('woff2-variations');
-}
-
-@font-face {
-  font-family: 'Space Grotesk Variable';
-  font-style: normal;
-  font-weight: 300 700;
-  font-display: swap;
-  src: url('../fonts/space-grotesk-latin-wght-normal.woff2') format('woff2-variations');
 }
