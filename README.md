@@ -119,17 +119,18 @@ Pendiente recomendado: una pasada manual con lector de pantalla (NVDA o VoiceOve
 
 ## Rendimiento y sostenibilidad
 
-Medición real tras publicar (19-nov-2026, Edge InPrivate, caché desactivada):
+Medición real tras publicar la v3.3 (23-nov-2026, Chromium, primera visita sin caché):
 
-| Recurso                      | Peso transferido                                                                                    |
-| ---------------------------- | --------------------------------------------------------------------------------------------------- |
-| HTML                         | 69.6 kB                                                                                             |
-| CSS                          | 20.5 kB                                                                                             |
-| JS (2 archivos)              | 4.5 kB                                                                                              |
-| Fuentes (2 archivos)         | 71.8 kB                                                                                             |
-| Imágenes (2, carga diferida) | 101.7 kB                                                                                            |
-| Favicon                      | 7.6 kB                                                                                              |
-| **Total**                    | **276 kB en DevTools; 267 kB en el medidor del sitio (no cuenta el favicon); primera vista 168 kB** |
+| Recurso                      | Peso transferido                                       |
+| ---------------------------- | ------------------------------------------------------ |
+| HTML                         | 18 kB (comprimido; 69.6 kB el 19-nov)                  |
+| CSS                          | 5 kB (comprimido; 20.5 kB el 19-nov)                   |
+| JS (1 archivo)               | 4 kB                                                   |
+| Fuentes (1 archivo, Inter)   | 47 kB (Space Grotesk retirada en la v3.3: −22 kB)      |
+| Imágenes (2, carga diferida) | 99 kB                                                  |
+| **Total**                    | **173 kB en el medidor del sitio (no cuenta favicon)** |
+
+Historia: 267 kB el 19-nov-2026 (Edge InPrivate), con HTML y CSS casi sin comprimir.
 
 La estimación previa (~191 kB) suponía HTML y CSS comprimidos; en la medición llegaron casi a su tamaño completo.
 
