@@ -17,6 +17,9 @@ HTML semántico, SCSS modular y JavaScript sin dependencias.
   leyendo). Las dos versiones comparten CSS, JS e id de sección; los mensajes que escribe el
   script viven en `UI_TEXT` de `js/main.js`. Encabezado compacto en teléfonos (desde 320 px, todo
   en una fila) y `robots.txt` + `sitemap.xml` con las dos versiones.
+  El inglés pasó por dos auditorías (ChatGPT y Gemini): 96 observaciones consolidadas en unas 100
+  correcciones de fraseo, falsos amigos y términos de EE. UU. El botón de idioma es un globo, igual
+  que el sol y la luna del botón de tema. En español, «Clientes» pasa a «Actividad comercial».
 - **Versión 3.3 (2026-11-23):** títulos en Inter; se retira Space Grotesk (una descarga menos).
 - **Versión 3.2 (2026-11-23):** correcciones de los tres auditores (Claude, Gemini y la prueba
   de Ramón en su teléfono) y de Lighthouse: casos HOPE, ADALID y Dolce Amaretto actualizados
