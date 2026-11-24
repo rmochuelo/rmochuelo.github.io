@@ -1,6 +1,11 @@
 // =============================================================================
 // BOTÓN DE IDIOMA (v3.4, B1)
-// Gemelo visual del botón de tema: un círculo con un globo (title y texto oculto dicen el idioma).
+// Muestra el idioma al que lleva, no el actual: «EN» en la página en español y
+// «ES» en la inglesa (patrón de dos idiomas de USWDS; sin banderas ni globo,
+// cuyo significado cambia entre culturas). En teléfonos, el código dentro del
+// círculo, gemelo del botón de tema; desde lg, el nombre completo en su idioma
+// («English», «Español»). El nombre siempre está en el árbol de accesibilidad,
+// así el nombre accesible contiene lo que se ve (WCAG 2.5.3).
 // Es un enlace (cambia de página), no un botón, así que funciona sin JavaScript.
 // =============================================================================
 
@@ -14,8 +19,9 @@
 
   // Queda pegado al botón de tema: los dos controles de preferencia van juntos.
   margin-inline-start: calc(var(--space-1) - var(--space-2));
-
-  // v3.4: icono de globo, igual que el sol/luna del botón de tema (pedido de Ramón).
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   color: var(--color-text);
   text-decoration: none;
   border: 1px solid var(--color-border);
@@ -31,7 +37,34 @@
     margin-inline-start: calc(var(--space-2) - var(--space-4));
   }
 
+  // Desde lg hay espacio: píldora con el nombre del idioma.
+  @include mixins.mq('lg') {
+    width: auto;
+    padding-inline: var(--space-4);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
   &:hover {
     background-color: var(--color-surface-alt);
+  }
+
+  &__name {
+    @include mixins.visually-hidden;
+
+    @include mixins.mq('lg') {
+      position: static;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip-path: none;
+    }
+  }
+
+  &__code {
+    @include mixins.mq('lg') {
+      display: none;
+    }
   }
 }
