@@ -85,3 +85,9 @@
     }
   }
 }
+
+// v3.5 (C5): figura con diagrama SVG; más estrecha que una foto para que el texto
+// del SVG no crezca de más en escritorio.
+.disclosure__figure--diagram {
+  max-inline-size: 30rem;
+}

@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HOPE – Tejiendo Futuro: a program designed in three weeks | Ramón Puentes</title>
+    <meta
+      name="description"
+      content="Full case: how I designed the work system and the human + AI workflow that structured, in three weeks, a proposal approved by the European Union."
+    />
+    <link rel="canonical" href="https://rmochuelo.github.io/en/casos/hope/" />
+    <link rel="alternate" hreflang="es" href="https://rmochuelo.github.io/casos/hope/" />
+    <link rel="alternate" hreflang="en" href="https://rmochuelo.github.io/en/casos/hope/" />
+    <link rel="alternate" hreflang="x-default" href="https://rmochuelo.github.io/casos/hope/" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#041c2e" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:title"
+      content="HOPE – Tejiendo Futuro: a program designed in three weeks | Ramón Puentes"
+    />
+    <meta
+      property="og:description"
+      content="Full case: how I designed the work system and the human + AI workflow that structured, in three weeks, a proposal approved by the European Union."
+    />
+    <meta property="og:url" content="https://rmochuelo.github.io/en/casos/hope/" />
+    <meta property="og:image" content="https://rmochuelo.github.io/img/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../../img/favicon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="../../../fonts/inter-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../../../css/styles.css" />
+    <script>
+      (function initThemeEarly() {
+        'use strict';
+        const THEME_STORAGE_KEY = 'theme';
+        const root = document.documentElement;
+        root.classList.add('js');
+        try {
+          if (localStorage.getItem(THEME_STORAGE_KEY) === 'light') {
+            root.dataset.theme = 'light';
+          }
+        } catch {
+          // localStorage puede estar bloqueado (modo privado): se queda el tema oscuro.
+        }
+      })();
+    </script>
+    <script src="../../../js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
+    <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-bridge" viewBox="0 0 32 32">
+        <path d="M3 22h26M5 22c3-9 19-9 22 0M11 17v5M16 15v7M21 17v5" />
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+        />
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
+      <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" /></symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" /></symbol>
+    </svg>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__brand" href="../../"
+          ><svg class="icon site-header__logo" aria-hidden="true"><use href="#icon-bridge" /></svg>
+          Ramón Puentes</a
+        >
+        <nav class="site-nav" aria-label="Main">
+          <button
+            class="site-nav__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-principal"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#icon-menu" /></svg>
+            <span class="site-nav__toggle-label">Menu</span>
+          </button>
+          <ul class="site-nav__list" id="menu-principal" role="list">
+            <li><a class="site-nav__link" href="../../#puentes">Bridges</a></li>
+            <li><a class="site-nav__link" href="../../#casos">Cases</a></li>
+            <li><a class="site-nav__link" href="../../#diagnostico">Diagnostic</a></li>
+            <li><a class="site-nav__link" href="../../#auditoria">Audit</a></li>
+            <li><a class="site-nav__link" href="../../#trayectoria">Experience</a></li>
+            <li><a class="site-nav__link" href="../../#contacto">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" type="button" aria-pressed="true">
+          <svg class="icon theme-toggle__icon--sun" aria-hidden="true">
+            <use href="#icon-sun" />
+          </svg>
+          <svg class="icon theme-toggle__icon--moon" aria-hidden="true">
+            <use href="#icon-moon" />
+          </svg>
+          <span class="visually-hidden">Dark theme</span>
+        </button>
+        <a
+          class="lang-toggle"
+          href="../../../casos/hope/"
+          hreflang="es"
+          lang="es"
+          title="Leer este caso en español"
+        >
+          <span class="lang-toggle__code" aria-hidden="true">ES</span>
+          <span class="lang-toggle__name">Español</span>
+        </a>
+      </div>
+    </header>
+    <main id="contenido" class="case-page">
+      <article aria-labelledby="titulo-caso">
+        <header class="case-page__hero">
+          <div class="container case-page__narrow">
+            <a class="text-link case-page__back" href="../../#casos"
+              ><svg class="icon" aria-hidden="true"><use href="#icon-arrow-left" /></svg> Back to
+              the cases</a
+            >
+            <p class="section__eyebrow">Case 01 · People ↔ AI · Social impact · 2025 – present</p>
+            <h1 id="titulo-caso">HOPE – Tejiendo Futuro</h1>
+            <p class="case-page__lead">
+              A EUR 1.1 million program designed in three weeks and approved by the European Union.
+            </p>
+            <p class="case-page__role">
+              My role: I led the technical writing and methodology design, with Brot für die Welt,
+              Fundación Mujer and Asociación Bosques Sin Fronteras.
+            </p>
+            <ul class="tag-list" role="list">
+              <li class="tag">Service Design</li>
+              <li class="tag">Learning Experience Design</li>
+              <li class="tag">Impact Design</li>
+              <li class="tag">AI Workflow Design</li>
+            </ul>
+          </div>
+        </header>
+        <section class="stats" aria-label="Case figures">
+          <dl class="container stats__list">
+            <div class="stats__item">
+              <dt class="stats__label">total proposal budget</dt>
+              <dd class="stats__value">EUR 1.1 M</dd>
+            </div>
+            <div class="stats__item">
+              <dt class="stats__label">program length</dt>
+              <dd class="stats__value">18 months</dd>
+            </div>
+            <div class="stats__item">
+              <dt class="stats__label">people targeted</dt>
+              <dd class="stats__value">9,600</dd>
+            </div>
+            <div class="stats__item">
+              <dt class="stats__label">to build it, versus the 3 to 6 months usually advised</dt>
+              <dd class="stats__value">3 weeks</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="section" aria-labelledby="titulo-problema">
+          <div class="container case-page__narrow case-page__prose">
+            <p class="section__eyebrow">The problem</p>
+            <h2 id="titulo-problema">Design the system, not just the document</h2>
+            <p>
+              Costa Rica hosts more than 500,000 Nicaraguans (UNHCR, 2024). Migrant women bear the
+              brunt: barriers to employment, gender-based violence and discrimination.
+            </p>
+            <p>
+              The European Union opened a call that requires a logical framework and a verifiable
+              source for every figure. The consortium decided to apply with about three weeks to go;
+              consultants usually advise starting 3 to 6 months ahead.
+            </p>
+            <p>
+              A traditional approach couldn’t work. So my first design deliverable was the work
+              system that would make the proposal possible.
+            </p>
+          </div>
+        </section>
+        <section class="section section--alt" aria-labelledby="titulo-sistema">
+          <div class="container case-page__narrow case-page__prose">
+            <p class="section__eyebrow">The system</p>
+            <h2 id="titulo-sistema">An agile team and a human + AI workflow</h2>
+            <h3>The team</h3>
+            <p>
+              Daily cycles: a stand-up to review status, a collaborative block from 7:00 to 15:00,
+              then individual work. A Kanban board and a closing review to cut or redefine scope. My
+              job: prioritize what carried the most weight in the evaluation and redefine scope
+              every day.
+            </p>
+            <figure class="case-page__figure">
+              <svg
+                class="diagram"
+                viewBox="0 0 360 250"
+                role="img"
+                aria-labelledby="diagram-hope-team"
+              >
+                <title id="diagram-hope-team">
+                  Daily cycle: daily stand-up, collaborative block from 7:00 to 15:00, individual
+                  work and closing review. Kanban board with three columns. To do: indicators,
+                  budget and transport support. In progress: logical framework and AI courses. Done:
+                  migration context, school gardens and trust circles.
+                </title>
+                <rect
+                  class="diagram__block diagram__block--accent"
+                  x="0"
+                  y="20"
+                  width="44"
+                  height="40"
+                  rx="6"
+                />
+                <text
+                  class="diagram__label diagram__label--on-accent"
+                  x="22"
+                  y="45"
+                  text-anchor="middle"
+                >
+                  Daily
+                </text>
+                <rect
+                  class="diagram__block diagram__block--accent"
+                  x="50"
+                  y="20"
+                  width="160"
+                  height="40"
+                  rx="6"
+                />
+                <text
+                  class="diagram__label diagram__label--on-accent"
+                  x="130"
+                  y="45"
+                  text-anchor="middle"
+                >
+                  7:00–15:00 as a team
+                </text>
+                <rect class="diagram__block" x="216" y="20" width="90" height="40" rx="6" />
+                <text class="diagram__label" x="261" y="45" text-anchor="middle">Individual</text>
+                <rect class="diagram__block" x="312" y="20" width="48" height="40" rx="6" />
+                <text class="diagram__label" x="336" y="45" text-anchor="middle">Close</text>
+                <text class="diagram__label diagram__label--strong" x="0" y="100">
+                  Kanban board
+                </text>
+                <rect class="diagram__block" x="0" y="112" width="112" height="128" rx="8" />
+                <rect class="diagram__block" x="124" y="112" width="112" height="128" rx="8" />
+                <rect class="diagram__block" x="248" y="112" width="112" height="128" rx="8" />
+                <text class="diagram__label" x="56" y="136" text-anchor="middle">To do</text>
+                <text class="diagram__label" x="180" y="136" text-anchor="middle">In progress</text>
+                <text class="diagram__label" x="304" y="136" text-anchor="middle">Done</text>
+                <rect class="diagram__card" x="6" y="146" width="100" height="24" rx="4" />
+                <text
+                  class="diagram__label diagram__label--small"
+                  x="56"
+                  y="162"
+                  text-anchor="middle"
+                >
+                  Indicators
+                </text>
+                <rect class="diagram__card" x="6" y="176" width="100" height="24" rx="4" />
+                <text
+                  class="diagram__label diagram__label--small"
+                  x="56"
+                  y="192"
+                  text-anchor="middle"
+                >
+                  Budget
+                </text>
+                <rect class="diagram__card" x="6" y="206" width="100" height="24" rx="4" />
+                <text
+                  class="diagram__label diagram__label--small"
+                  x="56"
+                  y="222"
+                  text-anchor="middle"
+                >
+                  Transport
+                </text>
+                <rect class="diagram__card" x="130" y="146" width="100" height="24" rx="4" />
+                <text
+                  class="diagram__label diagram__label--small"
+                  x="180"
+                  y="162"
+                  text-anchor="middle"
+                >
+                  Logframe
+                </text>
+                <rect class="diagram__card" x="130" y="176" width="100" height="24" rx="4" />
+                <text
+                  class="diagram__label diagram__label--small"
+                  x="180"
+                  y="192"
+                  text-anchor="middle"
+                >
+                  AI courses
+                </text>
+                <rect class="diagram__card" x="254" y="146" width="100" height="24" rx="4" />
+                <text
+                  class="diagram__label diagram__label--small"
+                  x="304"
+                  y="162"
+                  text-anchor="middle"
+                >
+                  Context
+                </text>
+                <rect class="diagram__card" x="254" y="176" width="100" height="24" rx="4" />
+                <text
+                  class="diagram__label diagram__label--small"
+                  x="304"
+                  y="192"
+                  text-anchor="middle"
+                >
+                  Gardens
+                </text>
+                <rect class="diagram__card" x="254" y="206" width="100" height="24" rx="4" />
+                <text
+                  class="diagram__label diagram__label--small"
+                  x="304"
+                  y="222"
+                  text-anchor="middle"
+                >
+                  Circles
+                </text>
+              </svg>
+              <figcaption>
+                Illustrative reconstruction: there are no photos of the internal work, for
+                confidentiality.
+              </figcaption>
+            </figure>
+            <h3>The human + AI workflow</h3>
+            <p>
+              I defined the activities and tasks for both tracks, entrepreneurship and
+              employability. AI helped me turn them into a logical framework in the format and
+              language the EU requires. Indicators, figures and decisions were always validated by
+              people. The accountant handled the budget, and Brot für die Welt the templates.
+            </p>
+            <figure class="case-page__figure">
+              <svg
+                class="diagram"
+                viewBox="0 0 360 240"
+                role="img"
+                aria-labelledby="diagram-hope-flow"
+              >
+                <title id="diagram-hope-flow">
+                  Human + AI workflow. Ramón defines activities and tasks; AI drafts the logical
+                  framework in the EU format; the team validates indicators and figures against
+                  official sources; the proposal goes out. In parallel, the accountant handles the
+                  budget and Brot für die Welt the templates.
+                </title>
+                <rect
+                  class="diagram__block diagram__block--accent"
+                  x="0"
+                  y="4"
+                  width="220"
+                  height="46"
+                  rx="8"
+                />
+                <text
+                  class="diagram__label diagram__label--on-accent diagram__label--strong"
+                  x="12"
+                  y="24"
+                >
+                  Ramón
+                </text>
+                <text
+                  class="diagram__label diagram__label--on-accent diagram__label--small"
+                  x="12"
+                  y="41"
+                >
+                  Activities and tasks
+                </text>
+                <path class="diagram__line" d="M110 52v12" />
+                <rect class="diagram__block" x="0" y="66" width="220" height="46" rx="8" />
+                <text class="diagram__label diagram__label--strong" x="12" y="86">AI</text>
+                <text class="diagram__label diagram__label--small" x="12" y="103">
+                  Logical framework draft
+                </text>
+                <path class="diagram__line" d="M110 114v12" />
+                <rect class="diagram__block" x="0" y="128" width="220" height="46" rx="8" />
+                <text class="diagram__label diagram__label--strong" x="12" y="148">Team</text>
+                <text class="diagram__label diagram__label--small" x="12" y="165">
+                  Validates indicators, figures
+                </text>
+                <path class="diagram__line" d="M110 176v12" />
+                <rect class="diagram__block" x="0" y="190" width="220" height="46" rx="8" />
+                <text class="diagram__label diagram__label--strong" x="12" y="210">Proposal</text>
+                <text class="diagram__label diagram__label--small" x="12" y="227">EU format</text>
+                <path class="diagram__cable" d="M228 27h12v186h-12" />
+                <rect class="diagram__card" x="248" y="60" width="112" height="56" rx="8" />
+                <text
+                  class="diagram__label diagram__label--small diagram__label--strong"
+                  x="256"
+                  y="84"
+                >
+                  Accountant
+                </text>
+                <text class="diagram__label diagram__label--small" x="256" y="102">Budget</text>
+                <rect class="diagram__card" x="248" y="140" width="112" height="56" rx="8" />
+                <text
+                  class="diagram__label diagram__label--small diagram__label--strong"
+                  x="256"
+                  y="164"
+                >
+                  Brot für die Welt
+                </text>
+                <text class="diagram__label diagram__label--small" x="256" y="182">
+                  EU templates
+                </text>
+              </svg>
+              <figcaption>
+                Illustrative reconstruction: there are no photos of the internal work, for
+                confidentiality.
+              </figcaption>
+            </figure>
+            <h3>The data</h3>
+            <p>
+              I coordinated the research: every context figure came from UNHCR 2024, INEC, DGME or
+              the CIEP-UCR survey. No figure went in without a source.
+            </p>
+          </div>
+        </section>
+        <section class="section" aria-labelledby="titulo-decisiones">
+          <div class="container">
+            <header class="section__header">
+              <p class="section__eyebrow">Decisions</p>
+              <h2 id="titulo-decisiones">Four decisions that shaped the design</h2>
+            </header>
+            <ol class="decision-grid" role="list">
+              <li class="decision">
+                <p class="decision__number">01</p>
+                <h3 class="decision__title">
+                  Cross-cutting inclusion instead of separate activities
+                </h3>
+                <dl class="decision__facts">
+                  <div>
+                    <dt>What we decided</dt>
+                    <dd>
+                      A minimum participation quota in every activity: 70% women, 20% young people,
+                      5% people with disabilities and 5% LGBTIQ+, tied to the logical framework
+                      indicators.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Why</dt>
+                    <dd>
+                      Dedicated LGBTIQ+ activities didn’t fit the budget or the timeline, and
+                      inclusion was a requirement of the call. Inclusion isn’t cut: it’s redesigned.
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+              <li class="decision">
+                <p class="decision__number">02</p>
+                <h3 class="decision__title">A focused geographic scope</h3>
+                <dl class="decision__facts">
+                  <div>
+                    <dt>What we decided</dt>
+                    <dd>
+                      School gardens (21 schools, 6,000 students) were concentrated in the districts
+                      of Upala and Los Chiles.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Why</dt>
+                    <dd>That turned logistics from a risk into something we could budget.</dd>
+                  </div>
+                </dl>
+              </li>
+              <li class="decision">
+                <p class="decision__number">03</p>
+                <h3 class="decision__title">Remove the barrier to access</h3>
+                <dl class="decision__facts">
+                  <div>
+                    <dt>What we decided</dt>
+                    <dd>
+                      Every training activity was budgeted with a per-participant transport
+                      allowance.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Why</dt>
+                    <dd>
+                      For vulnerable migrant women, the cost of transport decides attendance. It’s
+                      the same principle I apply in digital products: remove the friction that stops
+                      people from getting there.
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+              <li class="decision">
+                <p class="decision__number">04</p>
+                <h3 class="decision__title">A cross-cutting line with partners</h3>
+                <dl class="decision__facts">
+                  <div>
+                    <dt>What we decided</dt>
+                    <dd>
+                      What didn’t fit in the consortium’s activities moved to the financial support
+                      to third parties line: five local organizations run, with funds tied to
+                      results, new-masculinities training with young people to prevent gender-based
+                      violence, school gardens, labor rights for Indigenous people, dialogue with
+                      Indigenous youth and community theater.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Why</dt>
+                    <dd>
+                      Instead of cutting, we added partners with local experience. The large
+                      entrepreneurship fair also runs through this line.
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+            </ol>
+            <div class="case-page__narrow case-page__prose case-page__loop">
+              <h3>The journey ends with a sale</h3>
+              <p>
+                An entrepreneur with a name, a brand and a product, but nowhere to sell, is only
+                halfway there. Fundación Mujer runs institutional fairs and fairs inside large
+                companies: the company opens its doors, its employees buy, and the employee
+                association pays the entrepreneur on the spot. They last one to three days, weekly,
+                every two weeks or monthly. Five groups from the Greater Metropolitan Area that
+                finished the program already take part.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="section section--alt" aria-labelledby="titulo-diseno">
+          <div class="container case-page__narrow case-page__prose">
+            <p class="section__eyebrow">What I designed</p>
+            <h2 id="titulo-diseno">What I designed</h2>
+            <p>Planned in the approved proposal:</p>
+            <ul>
+              <li>
+                Two economic inclusion tracks: entrepreneurship (350 people) and employability
+                (500), with seed capital, safe fairs and links to private companies.
+              </li>
+              <li>
+                5 sales spaces (2 with private companies, 2 with local governments and a main fair
+                at Casa del Cuño) and a job fair in the Greater Metropolitan Area.
+              </li>
+              <li>
+                Two AI courses: “Emprende IA – Conectadas al Futuro” (100 participants) and “AI for
+                résumé writing” (120).
+              </li>
+              <li>
+                6 trust and emotional support circles, plus community and leadership workshops
+                against gender-based violence.
+              </li>
+              <li>
+                Awareness talks for 125 students at CTP de Upala and 300 young people in the Greater
+                Metropolitan Area.
+              </li>
+              <li>
+                Methods: participatory popular education, “learning to be an entrepreneur”, human
+                rights and intersectionality.
+              </li>
+            </ul>
+            <p class="case-page__note">
+              Brot für die Welt certifies that I led the strategic, conceptual and methodological
+              development of all of Fundación Mujer’s activities.
+            </p>
+          </div>
+        </section>
+        <section class="section" aria-labelledby="titulo-resultado">
+          <div class="container case-page__narrow case-page__prose">
+            <p class="section__eyebrow">Result</p>
+            <h2 id="titulo-resultado">We delivered on time</h2>
+            <p>
+              The European Union approved the full proposal: 18 months, EUR 1.1 million, designed to
+              reach 9,600 people. The program is underway, and I continue in it, teaching the
+              branding and digital marketing workshops for the women entrepreneurs.
+            </p>
+            <h3>What I take away</h3>
+            <ul>
+              <li>
+                With an impossible deadline, AI doesn’t replace the team. What works: clear
+                priorities, verified data and AI for the heavy lifting.
+              </li>
+              <li>
+                The highest-impact design wasn’t an interface: it was the work system and the scope
+                decisions.
+              </li>
+              <li>
+                Inclusion isn’t cut: it’s redesigned. And what doesn’t fit the budget is sustained
+                with partners, until the entrepreneur gets to sell.
+              </li>
+            </ul>
+            <details class="disclosure">
+              <summary class="disclosure__summary">What’s behind the figures</summary>
+              <div class="disclosure__body">
+                <ul class="disclosure__list">
+                  <li>
+                    EUR 1.1 M, 18 months, 9,600 people and the activities: proposal submitted to the
+                    NDICI – Global Europe call (annexes dated October 15, 2025). 9,600 is a target,
+                    not a result.
+                  </li>
+                  <li>Role: letter from Brot für die Welt dated September 11, 2026.</li>
+                  <li>
+                    Approval and execution: self-reported. The October 2025 thread with the EU
+                    Delegation shows the contracting phase.
+                  </li>
+                  <li>Three weeks to build it and five groups at the fairs: self-reported.</li>
+                  <li>
+                    3 to 6 months: consultants’ advice for EU calls (GRANTfinder), not an NDICI
+                    rule.
+                  </li>
+                  <li>
+                    No line-item amounts or participant data are published. The diagrams are
+                    illustrative reconstructions.
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </section>
+        <section class="section section--alt" aria-labelledby="titulo-cta">
+          <div class="container case-page__narrow case-page__prose">
+            <h2 id="titulo-cta">
+              Does your team face an impossible deadline, or an AI workflow that isn’t delivering?
+            </h2>
+            <p>
+              I design the system before the screen: priorities, roles, verifiable data and AI in
+              its place.
+            </p>
+            <p class="case-page__actions">
+              <a class="button button--primary" href="../../#auditoria">See the 15-day audit</a>
+              <a class="button button--secondary" href="../../#contacto">Contact me</a>
+            </p>
+            <p>
+              <a class="text-link" href="../../#casos"
+                >See the other cases
+                <span class="text-link__end"
+                  ><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right" /></svg></span
+              ></a>
+            </p>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p class="site-footer__note">
+          © <span data-current-year>2026</span> Ramón Puentes · Heredia, Costa Rica. A lightweight
+          site: no frameworks, no cookies and no trackers.
+        </p>
+        <nav class="site-footer__nav" aria-label="Sections">
+          <ul class="site-footer__links" role="list">
+            <li><a href="../../#puentes">Bridges</a></li>
+            <li><a href="../../#casos">Cases</a></li>
+            <li><a href="../../#diagnostico">Diagnostic</a></li>
+            <li><a href="../../#auditoria">Audit</a></li>
+            <li><a href="../../#trayectoria">Experience</a></li>
+          </ul>
+        </nav>
+        <a class="text-link" href="#contenido"
+          >Back to
+          <span class="text-link__end"
+            >top <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up" /></svg></span
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>

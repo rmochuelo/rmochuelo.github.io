@@ -129,3 +129,9 @@
     color: var(--color-text);
   }
 }
+
+// v3.5 (C9): enlace al caso completo, debajo de las métricas.
+.case__more {
+  justify-self: start;
+  font-weight: 600;
+}

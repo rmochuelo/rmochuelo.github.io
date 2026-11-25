@@ -1,0 +1,144 @@
+// =============================================================================
+// PÁGINA DE CASO (v3.5, C9)
+// Página propia para leer un caso completo. Reutiliza secciones, cifras,
+// diagramas y desplegables de la portada; aquí solo vive lo propio de la
+// lectura larga: columna estrecha, tarjetas de decisión y llamada final.
+// =============================================================================
+
+@use '../abstracts/mixins';
+
+.case-page {
+  // Columna de lectura: unos 70 caracteres por línea.
+  &__narrow {
+    max-width: calc(70ch + 2 * var(--space-6));
+  }
+
+  &__hero {
+    padding-block: var(--space-7) var(--space-6);
+
+    h1 {
+      margin-block: var(--space-2) var(--space-4);
+    }
+
+    .tag-list {
+      margin-top: var(--space-5);
+    }
+  }
+
+  &__back {
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-bottom: var(--space-5);
+    font-size: var(--font-size-sm);
+  }
+
+  &__lead {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+  }
+
+  &__role {
+    margin-top: var(--space-3);
+    color: var(--color-text-muted);
+  }
+
+  // Ritmo vertical del texto largo sin clases en cada párrafo.
+  &__prose {
+    > * + * {
+      margin-top: var(--space-4);
+    }
+
+    > h3 {
+      margin-top: var(--space-6);
+    }
+
+    ul {
+      display: grid;
+      gap: var(--space-2);
+      padding-inline-start: var(--space-5);
+    }
+
+    .disclosure {
+      margin-top: var(--space-6);
+    }
+  }
+
+  &__figure {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 30rem;
+    padding: var(--space-5);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    figcaption {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+    }
+  }
+
+  &__note {
+    padding-inline-start: var(--space-4);
+    color: var(--color-text-muted);
+    border-inline-start: 3px solid var(--color-accent);
+  }
+
+  &__loop {
+    margin-top: var(--space-7);
+    padding-inline: 0;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+}
+
+// Cuatro decisiones: una columna en teléfonos, dos desde md.
+.decision-grid {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include mixins.mq('md') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.decision {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  &__number {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.08em;
+  }
+
+  &__facts {
+    display: grid;
+    gap: var(--space-3);
+
+    dt {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    dd {
+      color: var(--color-text-muted);
+    }
+  }
+}

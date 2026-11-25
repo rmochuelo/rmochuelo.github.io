@@ -14,4 +14,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://rmochuelo.github.io/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rmochuelo.github.io/" />
   </url>
+  <url>
+    <loc>https://rmochuelo.github.io/casos/hope/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rmochuelo.github.io/casos/hope/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rmochuelo.github.io/en/casos/hope/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rmochuelo.github.io/casos/hope/" />
+  </url>
+  <url>
+    <loc>https://rmochuelo.github.io/en/casos/hope/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rmochuelo.github.io/casos/hope/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rmochuelo.github.io/en/casos/hope/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rmochuelo.github.io/casos/hope/" />
+  </url>
 </urlset>

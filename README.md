@@ -21,6 +21,11 @@ HTML semántico, SCSS modular y JavaScript sin dependencias.
   correcciones de fraseo, falsos amigos y términos de EE. UU. El botón de idioma muestra el idioma al que
   lleva (EN en español, ES en inglés) y desde lg su nombre completo, según el patrón de dos idiomas
   de USWDS. En español, «Clientes» pasa a «Actividad comercial».
+- **Versión 3.5 (2026-11-24):** página propia del caso HOPE en `/casos/hope/` y `/en/casos/hope/`
+  (estilos en `scss/pages/_case-page.scss`, sin montos por línea ni datos de participantes). En el
+  caso de Dolce Amaretto se retira la foto del alfajor y la etiqueta con CO2e por lote pasa a ser la
+  imagen del caso. Tarjeta de reglas de Fundación Mujer redibujada en SVG y el aprendizaje de
+  CodeATE (caso ficticio en una cohorte) en el caso de ADALID.
 - **Versión 3.3 (2026-11-23):** títulos en Inter; se retira Space Grotesk (una descarga menos).
 - **Versión 3.2 (2026-11-23):** correcciones de los tres auditores (Claude, Gemini y la prueba
   de Ramón en su teléfono) y de Lighthouse: casos HOPE, ADALID y Dolce Amaretto actualizados
